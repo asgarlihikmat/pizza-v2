@@ -82,6 +82,7 @@ function App() {
           </div>
 
           <Routes>
+            <Route path="/" element={<Pizza />} />
             <Route path="/main" element={<Pizza />} />
             <Route path="/:id" element={<PizzaDetail />} />
             <Route path="*" element={<NotFound />} />
