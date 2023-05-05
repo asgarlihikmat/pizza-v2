@@ -56,7 +56,7 @@ function App() {
           <div className="pizza">
             <div className="pizza__body__one">
               <div className="pizza__image">
-                <Link to={"/"}>
+                <Link to={"/main"}>
                   <img src={logo} alt="logo" />
                 </Link>
               </div>
@@ -82,7 +82,7 @@ function App() {
           </div>
 
           <Routes>
-            <Route path="/" element={<Pizza />} />
+            <Route path="/main" element={<Pizza />} />
             <Route path="/:id" element={<PizzaDetail />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/order" element={<Order />} />
