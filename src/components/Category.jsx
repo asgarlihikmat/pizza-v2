@@ -22,7 +22,7 @@ const Category = () => {
     "Закрытые",
   ];
   const [open, setOpen] = React.useState(false);
-  const [active, setActive] = React.useState();
+  const [active, setActive] = React.useState('не выбран');
   const dispatch = useDispatch();
   const categoryIndex = useSelector((state) => state.categorySlice.categories);
   return (

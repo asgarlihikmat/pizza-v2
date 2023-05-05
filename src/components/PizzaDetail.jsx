@@ -10,7 +10,7 @@ const PizzaDetail = () =>{
     React.useEffect(()=>{
        async function fetchPizza (){
         try{
-            const {data} = await axios.get(`http://192.168.31.180:3000/pizzas/${id}`);
+            const {data} = await axios.get(`https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz/${id}`);
             
             setPizza(data);
       

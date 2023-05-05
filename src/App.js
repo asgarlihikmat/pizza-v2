@@ -24,14 +24,14 @@ function App() {
 
   const fetchPizzas = async () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
-    const filters = filter ? `&title_like=${filter}` : "";
-    const pagesAndLimit = `&_limit=${limit}&_page=${page}`;
+    const filters = filter ? `&search=${filter}` : "";
+    const pagesAndLimit = `&page=${page}&limit=${limit}`;
     const sortPizza = sort.name
-      ? `&_sort=${sort.nameType}&_order=${sort.type}`
+      ? `&sortby=${sort.nameType}&order=${sort.type}`
       : "";
     try {
       const { data } = await axios.get(
-        `http://192.168.31.180:3000/pizzas?${category}${filters}${pagesAndLimit}${sortPizza}`
+        `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz?${category}${filters}${sortPizza}${pagesAndLimit}`
       );
       dispatch(getAllPizzas(data));
     } catch (error) {

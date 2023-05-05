@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  page: 0,
-  limit: 12,
+  page: 1,
+  limit: 15,
 };
 
 export const paginateSlice = createSlice({
@@ -14,7 +14,7 @@ export const paginateSlice = createSlice({
     },
     setLimit(state, action) {
       state.limit = action.payload;
-      state.page = 0;
+      state.page = 1;
     },
   },
 });
