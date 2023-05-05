@@ -6,9 +6,10 @@ import likes from '../assets/icons/like.png'
 import nolikes from '../assets/icons/liked.png'
 
 import { setLike } from "../redux/pizzaSlice";
+import { useNavigate } from "react-router-dom";
 
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
-
+  const navigation = useNavigate();
   const typeName = ["тонкое", "традиционное"];
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
@@ -48,11 +49,13 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       dispatch(addPizza(item));
     }
   };
-
+  function pizzaDetail(id) {
+    navigation(`/${id}`)
+  }
   return (
     <div className="blockpizza">
       <div className="blockpizza__image">
-        <img className="pizzaimage" src={imageUrl} /> 
+        <img onClick={() => pizzaDetail(id)} className="pizzaimage" src={imageUrl} /> 
         {like === 1 ? <img onClick={() => likeEt(id)} className='like' src={nolikes} />
         :<img onClick={() => likeEtme(id)} className='like' src={likes} />}
 

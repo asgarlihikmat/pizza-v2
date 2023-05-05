@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  filter: [],
+  filter: "",
+  sort: {}
 };
 
 export const filterSlice = createSlice({
@@ -9,11 +10,13 @@ export const filterSlice = createSlice({
   initialState,
   reducers: {
     setFilter(state, action) {
-     
       state.filter = action.payload;
     },
+    setSort(state,action){
+      state.sort = action.payload;
+    }
   },
 });
 
-export const { setFilter } = filterSlice.actions;
+export const { setFilter,setSort } = filterSlice.actions;
 export default filterSlice.reducer;

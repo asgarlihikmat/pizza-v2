@@ -2,8 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import strelka from "../assets/icons/Vector.svg";
 import React, { useRef } from "react";
 import { setCategoryIndex } from "../redux/categorySlice";
+import { setSort } from "../redux/filterSlice";
 
 const Category = () => {
+  const sortList = [
+    {name: "по цене (DESC)", type: "desc",nameType: 'price',status: "activex"},
+    {name: "по цене (ASC)", type: "asc",nameType: 'price',status: "activex"},
+    {name: "популярности (DESC)", type: "desc",nameType: 'rating',status: "activex"},
+    {name: "популярности (ASC)", type: "asc",nameType: 'rating',status: "activex"},
+    {name: "по алфавиту (DESC)", type: "desc",nameType: 'title',status: "activex"},
+    {name: "по алфавиту (ASC)", type: "asc",nameType: 'title',status: "activex"}
+  ]
   const pizzaList = [
     "Все",
     "Мясные",
@@ -13,7 +22,7 @@ const Category = () => {
     "Закрытые",
   ];
   const [open, setOpen] = React.useState(false);
-
+  const [active, setActive] = React.useState();
   const dispatch = useDispatch();
   const categoryIndex = useSelector((state) => state.categorySlice.categories);
   return (
@@ -35,16 +44,14 @@ const Category = () => {
         <img className="menu__image" src={strelka} />
         <span className="menu__sort">Сортировка по:</span>
         <span onClick={() => setOpen(!open)} className="menu__popular">
-          популярности
+          {active}
         </span>
         {open && (
           <div className="menu__items">
             <ul>
-              <li key={1} className="activex">
-                популярности
-              </li>
-              <li>по цене</li>
-              <li>по алфавиту</li>
+              {sortList.map((sort,index) => (
+                <li className={sort.name === active ? "activex":''} key={index} onClick={() => {dispatch(setSort(sort)); setActive(sort.name)} }>{sort.name}</li>
+              ))}
             </ul>
           </div>
         )}

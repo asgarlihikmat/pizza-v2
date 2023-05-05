@@ -138,7 +138,26 @@ body::-webkit-scrollbar {
     line-height: 19px;
   }
 }
+.detail{
+  margin: 50px 0px 10px 20px;
+  &__body{
+    display: flex;
+  }
+  &__info{
 
+    .titlestyle{
+        font-size: 20px;
+        font-weight: 700;
+    }
+    &__title{
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    &__price{
+      font-size: 20px;
+    }
+  }
+}
 .menu {
   margin: 30px 0px 0px 0px;
   display: flex;
@@ -158,24 +177,23 @@ body::-webkit-scrollbar {
     cursor: pointer;
     // margin: 20px 0px 0px 160px;
 
-    width: 132px;
-    height: auto;
+    width: 175px;
     margin: 5px 0px 0px 130px;
     background: #ffffff;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     position: absolute;
     top: 250px;
+    z-index: 1;
 
   }
   &__items ul li {
     color: #000000;
     font-weight: 400;
     font-size: 14px;
-    line-height: 17px;
     text-align: center;
-
-    padding: 18px 0px 18px 0px;
+    padding: 15px 0px 15px 0px;
+   
   }
   &__list ul {
     display: flex;

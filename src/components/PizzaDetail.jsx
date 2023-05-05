@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React from 'react'
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 const PizzaDetail = () =>{
     
@@ -10,9 +10,8 @@ const PizzaDetail = () =>{
     React.useEffect(()=>{
        async function fetchPizza (){
         try{
-            const {data} = axios.get(
-              'http://192.168.31.180:3000/pizzas/'+id
-            );
+            const {data} = await axios.get(`http://192.168.31.180:3000/pizzas/${id}`);
+            
             setPizza(data);
       
           }catch(error){
@@ -24,14 +23,20 @@ const PizzaDetail = () =>{
        }
        fetchPizza();
     },[])
+
     if(!pizza){
         return 'Загрузка...'
     }
     return(
-        <div>
+        <div className="detail">
+            <div className="detail__body">
             <img src={pizza.imageUrl}/>
-               <h2>{pizza.title}</h2>
-               <h3>{pizza.price}</h3>
+              <div className="detail__info">
+                <div className="detail__info__title">Название пиццы:<span className="titlestyle">{pizza.title}</span></div>
+                <div className="detail__info__price">Цена пиццы:<span className="titlestyle">{pizza.price}</span></div>
+
+              </div>
+            </div>
         </div>
     )
 }

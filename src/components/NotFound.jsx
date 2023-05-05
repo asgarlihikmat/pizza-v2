@@ -10,7 +10,7 @@ const NotFound = () => {
   }
   return (
     <div className="empty">
-      {timeToBack()}
+      
       <div className="empty__title">Корзина пустая</div>
       <div className="empty__text">
         <p>Вероятней всего, вы не заказывали ещё пиццу.</p>

@@ -18,30 +18,27 @@ import PizzaDetail from "./components/PizzaDetail";
 function App() {
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.categorySlice.categories);
-  const filterSearch = useSelector((state) => state.filterSlice.filter);
+  const { filter, sort } = useSelector((state) => state.filterSlice);
   const { page, limit } = useSelector((state) => state.paginateSlice);
-  const pizzas = useSelector(state => state.pizzaSlice.pizza);
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   const fetchPizzas = async () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
-    const filter = filterSearch !== "" ? `&title_like=${filterSearch}` : "";
+    const filters = filter ? `&title_like=${filter}` : "";
     const pagesAndLimit = `&_limit=${limit}&_page=${page}`;
-    const liked = `&like=0`
-
-    try{
-      const {data} = await axios.get(
-        `http://192.168.31.180:3000/pizzas?${category}${filter}${pagesAndLimit}${liked}`
+    const sortPizza = sort.name
+      ? `&_sort=${sort.nameType}&_order=${sort.type}`
+      : "";
+    try {
+      const { data } = await axios.get(
+        `http://192.168.31.180:3000/pizzas?${category}${filters}${pagesAndLimit}${sortPizza}`
       );
       dispatch(getAllPizzas(data));
-
-    }catch(error){
-        console.log('ERROR',error.message);
-        alert('Ошибка при получении пицц')
-    }finally{
-
+    } catch (error) {
+      console.log("ERROR", error.message);
+      alert("Ошибка при получении пицц");
+    } finally {
     }
-    
   };
 
   React.useEffect(() => {
@@ -50,7 +47,7 @@ function App() {
     //   .then((response) => dispatch(getAllPizzas(response.data)));
 
     fetchPizzas();
-  }, [categoryId, filterSearch, page, limit]);
+  }, [categoryId, filter, page, limit, sort]);
 
   return (
     <div className="wrapper">
@@ -72,8 +69,14 @@ function App() {
                 </div>
               </Link>
             </div>
-            {(pathname === '/liked' || pathname === '/order'|| pathname === '/orderdetail') ? '':  <Search />}
-            
+            {pathname === "/liked" ||
+            pathname === "/order" ||
+            pathname === "/orderdetail" ? (
+              ""
+            ) : (
+              <Search />
+            )}
+
             <Basket />
             {/* <Search /> */}
           </div>
