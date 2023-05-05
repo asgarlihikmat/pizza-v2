@@ -1,14 +1,15 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPizza } from "../redux/addSlice";
+import { addPizza } from "../../redux/addSlice";
 import alertify from "alertifyjs";
-import likes from '../assets/icons/like.png'
-import nolikes from '../assets/icons/liked.png'
+import likes from '../../assets/icons/like.png'
+import nolikes from '../../assets/icons/liked.png'
 
-import { setLike } from "../redux/pizzaSlice";
+import { setLike } from "../../redux/pizzaSlice";
 
-const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
-
+const LikedPizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
+  
+  
   const typeName = ["тонкое", "традиционное"];
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
@@ -16,13 +17,8 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
 
   function likeEt (id){
       dispatch(setLike(id));
-      alertify.error('Вы удалили пиццу из выбранные!');
   }
-  function likeEtme (id){
-    dispatch(setLike(id));
-    alertify.success('Вы добывили пиццу в выбранные!');
 
-}
   const cartItem = useSelector((state) =>
     state.addSlice.addedPizza.find((obj) => obj.id === id)
   );
@@ -53,11 +49,10 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
     <div className="blockpizza">
       <div className="blockpizza__image">
         <img className="pizzaimage" src={imageUrl} /> 
-        {like === 1 ? <img onClick={() => likeEt(id)} className='like' src={nolikes} />
-        :<img onClick={() => likeEtme(id)} className='like' src={likes} />}
-
-        {/* <img onClick={() => likeEt(id)} className='like' src={likes} /> */}
-
+        {like !== 1 ? <img onClick={() => likeEt(id)} className="like" src={likes}/> 
+        :<img onClick={() => likeEt(id)} className="nolike" src={nolikes}/> 
+        
+        }
       </div>
       <div className="blockpizza__title">{title}</div>
       <div className="blockpizza__category">
@@ -101,4 +96,4 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   );
 };
 
-export default PizzaBlock;
+export default LikedPizzaBlock;

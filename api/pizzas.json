@@ -8,7 +8,8 @@
       "sizes": [26, 30, 40],
       "price": 803,
       "category": 0,
-      "rating": 4
+      "rating": 4,
+      "like": 1
     },
     {
       "id": 1,
@@ -18,7 +19,8 @@
       "sizes": [26, 40],
       "price": 245,
       "category": 0,
-      "rating": 6
+      "rating": 6,
+      "like": 1
     },
     {
       "id": 2,
@@ -28,7 +30,8 @@
       "sizes": [26, 40],
       "price": 295,
       "category": 1,
-      "rating": 4
+      "rating": 4,
+      "like": 0
     },
     {
       "id": 3,
@@ -38,7 +41,8 @@
       "sizes": [26, 30, 40],
       "price": 275,
       "category": 2,
-      "rating": 2
+      "rating": 2,
+      "like": 0
     },
     {
       "id": 4,
@@ -48,7 +52,8 @@
       "sizes": [26, 30, 40],
       "price": 415,
       "category": 3,
-      "rating": 8
+      "rating": 8,
+      "like": 0
     },
     {
       "id": 5,
@@ -58,7 +63,8 @@
       "sizes": [30, 40],
       "price": 580,
       "category": 2,
-      "rating": 2
+      "rating": 2,
+      "like": 0
     },
     {
       "id": 6,
@@ -68,7 +74,8 @@
       "sizes": [26, 30, 40],
       "price": 675,
       "category": 1,
-      "rating": 9
+      "rating": 9,
+      "like": 0
     },
     {
       "id": 7,
@@ -78,7 +85,8 @@
       "sizes": [26, 30, 40],
       "price": 450,
       "category": 4,
-      "rating": 10
+      "rating": 10,
+      "like": 0
     },
     {
       "id": 8,
@@ -88,7 +96,8 @@
       "sizes": [26, 30, 40],
       "price": 395,
       "category": 5,
-      "rating": 10
+      "rating": 10,
+      "like": 0
     },
     {
       "id": 9,
@@ -98,7 +107,8 @@
       "sizes": [26, 30, 40],
       "price": 285,
       "category": 5,
-      "rating": 7
+      "rating": 7,
+      "like": 0
     },
     {
       "id": 10,
@@ -108,7 +118,41 @@
       "sizes": [26, 30, 40],
       "price": 290,
       "category": 5,
-      "rating": 7
+      "rating": 7,
+      "like": 0
+    },
+    {
+      "id": 11,
+      "imageUrl": "https://pizzamizza.az/upload/iblock/f23/f238ce28ac3c02d5d6a82a80249f9a48.jpg?1617617212114168",
+      "title": "Фунги Кон Поло",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 120,
+      "category": 5,
+      "rating": 8,
+      "like": 0
+    },
+    {
+      "id": 12,
+      "imageUrl": "https://pizzamizza.az/upload/iblock/b30/b30d1e5de4821be1816d952c60800e1b.jpg?1617617212118957",
+      "title": "Спечиале",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 140,
+      "category": 5,
+      "rating": 9,
+      "like": 0
+    },
+    {
+      "id": 13,
+      "imageUrl": "https://pizzamizza.az/upload/iblock/f59/f59ed0dec6a9812b3b48a6fd32d32f76.jpg?1617617212127733",
+      "title": "Мексикана",
+      "types": [0, 1],
+      "sizes": [26, 30, 40],
+      "price": 160,
+      "category": 6,
+      "rating": 10,
+      "like": 0
     }
   ]
 }
