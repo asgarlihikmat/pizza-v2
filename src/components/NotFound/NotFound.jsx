@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import emptyLogo from "../assets/image/empty.png";
+import emptyLogo from "../../assets/image/empty.png";
 const NotFound = () => {
   const navigation = useNavigate();
 

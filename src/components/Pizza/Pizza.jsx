@@ -1,12 +1,8 @@
 import React from 'react'
-import Category from './Category';
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
-import { getAllPizzas } from '../redux/pizzaSlice';
+import Category from '../Category/Category';
+import { useSelector } from 'react-redux';
 import PizzaBlock from './PizzaBlock';
-import Pagination from './Pagination';
-import { setPagination } from '../redux/paginateSlice';
-import { Link } from 'react-router-dom';
+import Pagination from '../Pagination/Pagination';
 
 const Pizza = () =>{
     const pizzaList = useSelector(state => state.pizzaSlice.pizza);

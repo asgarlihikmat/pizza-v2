@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
-import { setPage, setLimit } from "../redux/paginateSlice";
-import left from "../assets/icons/left.png";
-import right from "../assets/icons/right.png";
+import { setPage, setLimit } from "../../redux/slices/paginateSlice";
+import left from "../../assets/icons/left.png";
+import right from "../../assets/icons/right.png";
 
 function Pagination() {
   const dispatch = useDispatch();

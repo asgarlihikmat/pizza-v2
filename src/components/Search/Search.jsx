@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import search from "../assets/icons/search.png";
+import search from "../../assets/icons/search.png";
 import { useRef } from "react";
-import { setFilter } from "../redux/filterSlice";
+import { setFilter } from "../../redux/slices/filterSlice";
 
 const Search = () => {
   const dispatch = useDispatch();

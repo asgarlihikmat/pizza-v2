@@ -1,5 +1,5 @@
 import React from "react";
-import Category from "../Category";
+import Category from "../Category/Category";
 import { useDispatch, useSelector } from "react-redux";
 import LikedPizzaBlock from "./LikedPizzaBlock";
 import { useLocation } from "react-router-dom";

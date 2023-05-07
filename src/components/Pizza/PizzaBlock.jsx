@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPizza } from "../redux/addSlice";
+import { addPizza } from "../../redux/slices/addSlice";
 import alertify from "alertifyjs";
-import likes from '../assets/icons/like.png'
-import nolikes from '../assets/icons/liked.png'
+import likes from '../../assets/icons/like.png'
+import nolikes from '../../assets/icons/liked.png'
 
-import { setLike } from "../redux/pizzaSlice";
+import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
 
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import icon from "../assets/icons/Vector.svg";
+import icon from "../../assets/icons/Vector.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import like from "../assets/icons/liked.png";
+import like from "../../assets/icons/liked.png";
 
 const Basket = () => {
   const navigate = useNavigate();

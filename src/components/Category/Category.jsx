@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import strelka from "../assets/icons/Vector.svg";
+import strelka from "../../assets/icons/Vector.svg";
 import React, { useRef } from "react";
-import { setCategoryIndex } from "../redux/categorySlice";
-import { setSort } from "../redux/filterSlice";
+import { setCategoryIndex } from "../../redux/slices/categorySlice";
+import { setSort } from "../../redux/slices/filterSlice";
 
 const Category = () => {
   const sortList = [
