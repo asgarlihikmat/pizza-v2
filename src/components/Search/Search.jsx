@@ -17,13 +17,13 @@ const Search = () => {
     <div className="pizza__body__second">
       <div className="pizza__search">
       
-        <img className="pizza__search__image" src={search} />{" "}
+      <img className="pizza__search__image" src={search} />
         <input
           ref={inputRef}
           onChange={() => onHandleChange()}
           className="pizza__input"
           placeholder="Поиск пиццы"
-        />
+        /> 
         
       </div>
       

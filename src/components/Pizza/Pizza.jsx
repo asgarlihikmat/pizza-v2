@@ -18,8 +18,6 @@ const Pizza = () =>{
                </div>
 
         </div>
-        
-        <Pagination />
         </div>
     )
 }

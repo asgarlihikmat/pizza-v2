@@ -13,19 +13,22 @@ import RecentOrderDetail from "./RecentOrder/RecentOrderDetail";
 import Liked from "./LikedPizzas/Liked";
 import Basket from "./Order/Basket";
 import PizzaDetail from "./Pizza/PizzaDetail";
+import Pagination from "./Pagination/Pagination";
 
 function Home() {
+  const[page,setPage] = React.useState(1);
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.categorySlice.categories);
   const { status } = useSelector((state) => state.pizzaSlice);
   const { filter, sort } = useSelector((state) => state.filterSlice);
-  const { page, limit } = useSelector((state) => state.paginateSlice);
+  const { limit } = useSelector((state) => state.paginateSlice);
   const { pathname } = useLocation();
-  console.log(status);
+
   const getPizzas = async () => {
+
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const filters = filter ? `&search=${filter}` : "";
-    const pagesAndLimit = `&page=${page}&limit=${limit}`;
+    const pagesAndLimit = limit !== 0 ? `&page=${page}&limit=${limit}`: '';
     const sortPizza = sort.name
       ? `&sortby=${sort.nameType}&order=${sort.type}`
       : "";
@@ -67,7 +70,7 @@ function Home() {
           </div>
           {status === "loading" ? (
             <div className="spinner-direction">
-            <div class="spinner">
+            <div className="spinner">
               <div></div>
               <div></div>
               <div></div>
@@ -85,8 +88,10 @@ function Home() {
           ) : (
             <Outlet />
           )}
+
         </div>
       </div>
+      <Pagination setPage={setPage} />
       <div className="createdBy">
         <div className="createdBy__title">Hikmat Asgarli</div>
       </div>

@@ -3,6 +3,7 @@ import strelka from "../../assets/icons/Vector.svg";
 import React, { useRef } from "react";
 import { setCategoryIndex } from "../../redux/slices/categorySlice";
 import { setSort } from "../../redux/slices/filterSlice";
+import {setPage} from '../../redux/slices/paginateSlice'
 
 const Category = () => {
   const sortList = [
@@ -25,13 +26,19 @@ const Category = () => {
   const [active, setActive] = React.useState('не выбран');
   const dispatch = useDispatch();
   const categoryIndex = useSelector((state) => state.categorySlice.categories);
+
+  function changeCategory(index) {
+    dispatch(setCategoryIndex(index));
+     
+  }
+
   return (
     <div className="menu">
       <div className="menu__list">
         <ul>
           {pizzaList.map((pizzaName, index) => (
             <li
-              onClick={() => dispatch(setCategoryIndex(index))}
+              onClick={() => changeCategory(index)}
               className={index === categoryIndex ? "active" : ""}
               key={index}
             >

@@ -1,6 +1,6 @@
 import cart from "../../assets/icons/cart.gif";
 import emp from "../../assets/icons/emp.png";
-import remove from "../../assets/icons/remove.gif";
+import remove from "../../assets/icons/remove.png";
 import minus from "../../assets/icons/minus.png";
 import plus from "../../assets/icons/plus.png";
 import pizzaSlice from "../../assets/icons/slice.png";

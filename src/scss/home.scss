@@ -1,4 +1,6 @@
 @import "../../public/nullstyle.scss";
+@import "../scss/responsbility.scss";
+
 .wrapper {
   // max-width: 100vw;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -630,76 +632,7 @@ body::-webkit-scrollbar {
   border: 1px solid #f3f3f3;
 }
 
-@media only screen and (max-width: 1344px) {
-  .pizza__search{
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .pizza__body__second{
-    display: flex;
-    flex-wrap: wrap;
-    
-  }
-  .pizza__search img {
-    display: none;
-}
-  .pizza__search input{
-   width: 100%;
-  }
-  .pizza__card{
-    display: flex;
-  
-  flex-wrap: wrap;
-    margin: 0px 0px 0px 0px;
-  }
 
- .pizza__card span{
-    padding: 10px;
-
- }
-  
-  .pizza__title{
-    font-size: 50px;
-  }
-  .order{
-    &__add__count{
-      font-size: 100%;
-    }
-    &__price{
-      font-size: 100%;
-    }
-    &__title{
-      font-size: 100%;
-      &__text{
-        font-size: 100%;
-      }
-    }
-  }
-  .menu__items {
-    cursor: pointer;
-    position: absolute;
-    top: 300px;
-
-  }
-  
-  
-  .menu {
-    display: flex;
-    flex-direction: row;
-    &__filter{
-      margin-top: 10px;
-    }
-    &__list ul{
-      
-      display: flex;
-      flex-wrap: wrap;
-      & li{
-        padding: 5px;
-      }
-    }
-
-  }
-}
 
 .recentorder{
   &__wrapper{
@@ -750,86 +683,9 @@ body::-webkit-scrollbar {
   }
 }
 
-@media only screen and (max-width: 976px) {
-  .pizza__title{
-    font-size: 50px;
-  }
-  .menu__items {
-    cursor: pointer;
-    position: absolute;
-    top: 320px;
-
-  }
-  .pizza__card{
-    display: flex;
-    margin: 5px 0px 0px 165px;
-
-  }
-  
-}
-
-@media only screen and (max-width: 790px) {
- 
-    .pizza__title{
-      font-size: 30px;
-    }
-    .pizza__text{
-      font-size: 15px;
-    }
-}
 
 
 
-
-
-
-@media only screen and (max-width: 684px) {
-  .pizza{
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .pizza__search input{
-    margin-top: 10px;
-  }
-  .pizza__body__second{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .pizza__card{
-    margin: 5px 0px 0px 95px;
-  }
-}
-
-@media only screen and (max-width: 504px) {
-  .pizza__title{
-    font-size: 30px;
-  }
-  .pizza__text{
-    font-size: 10px;
-  }
-  .container{
-    margin: -30px;
-  }
-}
-
-@media only screen and (max-width: 444px) {
-  .pizza__text{
-    margin: 0px 0px 30px 0px;
-  }
-  .pizza__title{
-    font-size: 30px;
-  }
-  .pizza__search input{
-    width: 255px;
-  }
-  .pizza__search input{
-    margin-left: -30px;
-  }
-  .pizza__card {
-    margin-right: 35px;
-  }
-}
 
 .recentorderdetail__container{
   & .diverse{
