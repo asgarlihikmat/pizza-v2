@@ -153,6 +153,11 @@ body::-webkit-scrollbar {
   margin: 50px 0px 10px 20px;
   &__body{
     display: flex;
+    
+  }
+  &__body img{
+    max-width: 600px;
+    max-height: 600px;
   }
   &__info{
 
@@ -266,6 +271,20 @@ body::-webkit-scrollbar {
   border: 1px solid #F3F3F3;
   border-radius: 30px;
   padding: 5px 0px 10px 7px;
+}
+.blockpizza__detail{
+  // margin: 100px;
+  align-items: center;
+  border: 1px solid #d3d3d3;
+  border-radius: 30px;
+  padding: 30px;
+  .active {
+    background: #ffffff;
+    color: black;
+    flex: 1 1 auto;
+    margin: 5px 5px;
+    text-align: center;
+  }
 }
 .blockpizza {
   margin: 40px auto;
