@@ -25,7 +25,6 @@ function Home() {
   const { filter, sort } = useSelector((state) => state.filterSlice);
   const { limit } = useSelector((state) => state.paginateSlice);
   const { pathname } = useLocation();
-  console.log(categoryId);
   
   const getPizzas = async () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
@@ -43,6 +42,7 @@ function Home() {
   }, [categoryId, filter, page, limit, sort]);
   function homePage() {
       dispatch(setCategoryIndex(0))
+      navigate('/')
   }
   return (
     <div className="wrapper">
