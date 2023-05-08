@@ -15,7 +15,7 @@ const Category = () => {
     {name: "по алфавиту (ASC)", type: "asc",nameType: 'title',status: "activex"}
   ]
   const pizzaList = [
-    "Все",
+    "Все ",
     "Мясные",
     "Вегетарианская",
     "Гриль",
