@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
-
+import Update from "./Update";
 
 const AdminTable = () => {
   const typeName = ["тонкое", "традиционное"];
   const { pizza } = useSelector((state) => state.pizzaSlice);
+
   return (
     <div className="admin__container">
       <table className="admin__table table table-striped table-hover border">
@@ -42,13 +43,13 @@ const AdminTable = () => {
               </ul>
               </td>
               <td>
-                <button type="button" className="btn btn-danger">Удалить</button>
-              <button type="button" className="btn btn-warning">Изменить</button>
+               
+                <Update />
               </td>
             </tr>
           ))}
 
-          
+         
         </tbody>
       </table>
     </div>
