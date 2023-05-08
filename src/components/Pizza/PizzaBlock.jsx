@@ -31,6 +31,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
 
   const addNewPizza = () => {
     const date = new Date();
+    
     const item = {
       id,
       title,
@@ -38,8 +39,9 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       imageUrl,
       type: typeName[activeType],
       size: sizes[activeSize],
-      date: {date: date.getDay(),month: date.getMonth(),year: date.getFullYear()}
+      date: {date: date.getDate(),month: date.getMonth(),year: date.getFullYear()}
     };
+    
     if (item.type === undefined) {
       alertify.error("Вы не выбрали тип");
     } else if (item.size === undefined) {

@@ -25,7 +25,7 @@ const PizzaDetail = () =>{
     },[])
 
     if(!pizza){
-        return 'Загрузка...'
+        return ''
     }
     return(
         <div className="detail">

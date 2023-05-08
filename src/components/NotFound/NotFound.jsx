@@ -11,8 +11,8 @@ const NotFound = () => {
   return (
     <div className="empty">
       
-      <div className="empty__title">Корзина пустая</div>
-      <div className="empty__text">
+      <div className="empty__title font">Корзина пустая</div>
+      <div className="empty__text font">
         <p>Вероятней всего, вы не заказывали ещё пиццу.</p>
         <p>Для того, чтобы заказать пиццу, перейди на главную страницу.</p>{" "}
       </div>

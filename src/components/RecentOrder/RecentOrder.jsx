@@ -8,6 +8,7 @@ const RecentOrders = () => {
   const orderList = useSelector((state) => state.orderedSlice.ordered);
   const navigate = useNavigate();
   return (
+
     <div className="recentorder__wrapper">
       {orderList.length > 0 ? <div className="recentorder__justtitle">Недавние заказы</div> : ''}
       <div className="recentorder__container">

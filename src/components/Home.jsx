@@ -52,7 +52,7 @@ function Home() {
               </div>
               <Link to={"/"}>
                 <div className="pizza__body">
-                  <div className="pizza__title">Chicago Pizza</div>
+                  <div className="pizza__title">CHICAGO PIZZA</div>
                   <div className="pizza__text">
                     самая вкусная пицца во вселенной
                   </div>

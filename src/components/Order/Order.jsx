@@ -17,7 +17,7 @@ const Order = () => {
   const navigate = useNavigate();
   const addedPizzaList = useSelector((state) => state.addSlice.addedPizza);
   const { addedPizza } = useSelector((state) => state.addSlice);
-
+  console.log(addedPizza);
   const dispatch = useDispatch();
 
   const removeOnePizzas = (index) => {
