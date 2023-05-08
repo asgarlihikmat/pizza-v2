@@ -7,6 +7,7 @@ import RecentOrderDetail from "./components/RecentOrder/RecentOrderDetail";
 import Liked from "./components/LikedPizzas/Liked";
 import PizzaDetail from "./components/Pizza/PizzaDetail";
 import Home from "./components/Home";
+import AdminTable from "./components/Admin/AdminTable";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/orderdetail" element={<RecentOrderDetail />} />
         <Route path="/liked" element={<Liked />} />
+        <Route path="/admin" element={<AdminTable />} />
         </Route>
       </Routes>
     </div>

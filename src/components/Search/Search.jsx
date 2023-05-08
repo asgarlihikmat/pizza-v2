@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import search from "../../assets/icons/search.png";
 import { useRef } from "react";
 import { setFilter } from "../../redux/slices/filterSlice";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -24,8 +25,11 @@ const Search = () => {
           className="pizza__input"
           placeholder="Поиск..."
         /> 
-        
+       
       </div>
+      <Link to={"/admin"}>
+      <button className="pizza__search__button">Admin</button>
+      </Link>
       
     </div>
   );

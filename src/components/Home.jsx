@@ -95,7 +95,7 @@ function Home() {
 
         </div>
       </div>
-      {pathname === "/order" || pathname === "/orderdetail" || pathname === `/pizza/${id}` ? '' :  <Pagination setPage={setPage} />}
+      { pathname === "/admin"||pathname === "/order" || pathname === "/orderdetail" || pathname === `/pizza/${id}` ? '' :  <Pagination setPage={setPage} />}
      
       <div className="createdBy">
         <div className="createdBy__title">Hikmat Asgarli</div>
