@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useLocation, Outlet } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Outlet, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound/NotFound";
 import Pizza from "./Pizza/Pizza";
 import logo from "../../src/assets/icons/pizza.png";
@@ -14,8 +14,10 @@ import Liked from "./LikedPizzas/Liked";
 import Basket from "./Order/Basket";
 import PizzaDetail from "./Pizza/PizzaDetail";
 import Pagination from "./Pagination/Pagination";
+import { setCategoryIndex } from "../redux/slices/categorySlice";
 
 function Home() {
+  const navigate = useNavigate();
   const[page,setPage] = React.useState(1);
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.categorySlice.categories);
@@ -23,22 +25,25 @@ function Home() {
   const { filter, sort } = useSelector((state) => state.filterSlice);
   const { limit } = useSelector((state) => state.paginateSlice);
   const { pathname } = useLocation();
-
+  console.log(categoryId);
+  
   const getPizzas = async () => {
-
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const filters = filter ? `&search=${filter}` : "";
-    const pagesAndLimit = limit !== 0 ? `&page=${page}&limit=${limit}`: '';
+    const pagesAndLimit = page > 1 ? `&page=${page}&limit=${limit}`: '';
     const sortPizza = sort.name
       ? `&sortby=${sort.nameType}&order=${sort.type}`
       : "";
+
     dispatch(fetchPizzas({ category, filters, sortPizza, pagesAndLimit }));
   };
 
   React.useEffect(() => {
     getPizzas();
   }, [categoryId, filter, page, limit, sort]);
-
+  function homePage() {
+      dispatch(setCategoryIndex(0))
+  }
   return (
     <div className="wrapper">
       <div className="container">
@@ -50,14 +55,12 @@ function Home() {
                   <img src={logo} alt="logo" />
                 </Link>
               </div>
-              <Link to={"/"}>
-                <div className="pizza__body">
+                <div onClick={() => homePage()} className="pizza__body">
                   <div className="pizza__title">CHICAGO PIZZA</div>
                   <div className="pizza__text">
                     самая вкусная пицца во вселенной
                   </div>
                 </div>
-              </Link>
             </div>
             {pathname === "/liked" ||
             pathname === "/order" ||

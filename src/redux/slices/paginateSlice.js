@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  page: 1,
+ 
   limit: 15,
   pizzaCount: []
 };
@@ -19,12 +19,8 @@ export const paginateSlice = createSlice({
   name: "page",
   initialState,
   reducers: {
-    setPage(state, action) {
-      state.page = action.payload;
-    },
     setLimit(state, action) {
       state.limit = action.payload;
-      
     }
   },
   extraReducers: {
