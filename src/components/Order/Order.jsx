@@ -4,7 +4,7 @@ import remove from "../../assets/icons/remove.png";
 import minus from "../../assets/icons/minus.png";
 import plus from "../../assets/icons/plus.png";
 import pizzaSlice from "../../assets/icons/slice.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAllPizzas, minusAdd } from "../../redux/slices/addSlice";
 import { plusAdd, removeOnePizza } from "../../redux/slices/addSlice";
@@ -15,9 +15,9 @@ import { setOrderedPizza } from "../../redux/slices/orderedSlice";
 
 const Order = () => {
   const navigate = useNavigate();
+  
   const addedPizzaList = useSelector((state) => state.addSlice.addedPizza);
   const { addedPizza } = useSelector((state) => state.addSlice);
-  console.log(addedPizza);
   const dispatch = useDispatch();
 
   const removeOnePizzas = (index) => {

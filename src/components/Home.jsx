@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useLocation, Outlet, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Outlet, useNavigate, useParams } from "react-router-dom";
 import NotFound from "./NotFound/NotFound";
 import Pizza from "./Pizza/Pizza";
 import logo from "../../src/assets/icons/pizza.png";
@@ -17,6 +17,7 @@ import Pagination from "./Pagination/Pagination";
 import { setCategoryIndex } from "../redux/slices/categorySlice";
 
 function Home() {
+  const {id} = useParams();
   const navigate = useNavigate();
   const[page,setPage] = React.useState(1);
   const dispatch = useDispatch();
@@ -94,7 +95,8 @@ function Home() {
 
         </div>
       </div>
-      <Pagination setPage={setPage} />
+      {pathname === "/order" || pathname === "/orderdetail" || pathname === `/pizza/${id}` ? '' :  <Pagination setPage={setPage} />}
+     
       <div className="createdBy">
         <div className="createdBy__title">Hikmat Asgarli</div>
       </div>

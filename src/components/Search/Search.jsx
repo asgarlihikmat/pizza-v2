@@ -22,7 +22,7 @@ const Search = () => {
           ref={inputRef}
           onChange={() => onHandleChange()}
           className="pizza__input"
-          placeholder="Поиск пиццы"
+          placeholder="Поиск..."
         /> 
         
       </div>

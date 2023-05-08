@@ -273,8 +273,6 @@ body::-webkit-scrollbar {
   padding: 5px 0px 10px 7px;
 }
 .blockpizza__detail{
-  // margin: 100px;
-  align-items: center;
   border: 1px solid #d3d3d3;
   border-radius: 30px;
   padding: 30px;
@@ -876,6 +874,9 @@ body::-webkit-scrollbar {
 
 
 @media only screen and (max-width: 505px) {
+  .blockpizza__detail{
+    margin-left: -30px;
+  }
   .pizza__card{
     margin: 0px 0px 0px 0px;
   }

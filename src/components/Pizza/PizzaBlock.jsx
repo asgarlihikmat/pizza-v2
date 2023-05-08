@@ -52,7 +52,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
     }
   };
   function pizzaDetail(id) {
-    navigation(`/${id}`)
+    navigation(`pizza/${id}`)
   }
   return (
     <div className="blockpizza">
