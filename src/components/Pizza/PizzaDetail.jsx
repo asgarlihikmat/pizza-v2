@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import React from 'react'
 import axios, { Axios } from "axios";
+import PizzaBlock from "./PizzaBlock";
 
 const PizzaDetail = () =>{
     
@@ -34,7 +35,7 @@ const PizzaDetail = () =>{
               <div className="detail__info">
                 <div className="detail__info__title">Название пиццы:<span className="titlestyle">{pizza.title}</span></div>
                 <div className="detail__info__price">Цена пиццы:<span className="titlestyle">{pizza.price}</span></div>
-
+                    <PizzaBlock key={pizza.id} {...pizza}/>
               </div>
             </div>
         </div>
