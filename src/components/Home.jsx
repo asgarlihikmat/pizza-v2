@@ -51,7 +51,7 @@ function Home() {
           <div className="pizza">
             <div className="pizza__body__one">
               <div className="pizza__image">
-                <Link to={"/main"}>
+                <Link to={"/"}>
                   <img src={logo} alt="logo" />
                 </Link>
               </div>
