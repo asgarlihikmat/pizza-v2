@@ -2,9 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import search from "../../assets/icons/search.png";
 import { useRef } from "react";
 import { setFilter } from "../../redux/slices/filterSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Search = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const inputRef = useRef();
 
@@ -27,9 +28,7 @@ const Search = () => {
         /> 
        
       </div>
-      <Link to={"/admin"}>
-      <button className="pizza__search__button">Admin</button>
-      </Link>
+      <button onClick={ () => navigate('/admin')} className="pizza__search__button">Admin</button>
       
     </div>
   );

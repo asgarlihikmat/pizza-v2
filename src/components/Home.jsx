@@ -64,6 +64,7 @@ function Home() {
                 </div>
             </div>
             {pathname === "/liked" ||
+            pathname === "/admin" ||
             pathname === "/order" ||
             pathname === "/orderdetail" ? (
               ""

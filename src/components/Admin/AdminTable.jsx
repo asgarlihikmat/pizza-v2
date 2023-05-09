@@ -1,10 +1,14 @@
 import { useSelector } from "react-redux";
 import Update from "./Update";
 import Add from "./Add";
+import React from 'react'
 
 const AdminTable = () => {
   const { pizza } = useSelector((state) => state.pizzaSlice);
+  React.useEffect(()=>{
 
+  },[])
+  
   return (
     <div className="admin__container">
       <Add />
