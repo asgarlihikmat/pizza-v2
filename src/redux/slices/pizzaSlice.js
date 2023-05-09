@@ -26,6 +26,15 @@ export const postPizzas = createAsyncThunk(
   }
 );
 
+export const deletePizza = createAsyncThunk(
+  "pizza/deletePizzasStatus",
+  async (item) => {
+    console.log(item);
+    axios.delete('https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz/'+ item,)
+    
+  }
+);
+
 export const pizzaSlice = createSlice({
   name: "pizza",
   initialState,

@@ -23,7 +23,7 @@ const Add = () => {
   const[types,setType] = React.useState([]);
   const [handleAdd, setHandleAdd] = React.useState([]);
   const dispatch = useDispatch();
-  console.log(open);
+  
   function handleChange(event) {
     const { name, value } = event.target;
     setHandleAdd({...handleAdd,[name]:value})

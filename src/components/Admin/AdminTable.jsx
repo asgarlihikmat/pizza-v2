@@ -45,7 +45,8 @@ const AdminTable = () => {
               </td>
               <td>
                
-                <Update />
+                <Update item={item}/>
+               
               </td>
             </tr>
           ))}
