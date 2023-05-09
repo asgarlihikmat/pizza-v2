@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const typesList = [
-  {label: 'тонкое',value: 1},
+  {label: 'тонкое',value: 1 },
   {label: 'традиционное',value: 2}
 ]
 const sizesList = [
