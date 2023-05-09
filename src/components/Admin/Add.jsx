@@ -69,10 +69,12 @@ function addPizza(sizes,types) {
  
   return (
     <>
-
-      <Button variant="success" onClick={() => setOpen(!open)}>
+      <div className="d-flex justify-content-end">
+      <Button className="mb-3" variant="success" onClick={() => setOpen(!open)}>
       Добавить новую пиццу
       </Button>
+      </div>
+      
      
       <Modal
         show={open}
