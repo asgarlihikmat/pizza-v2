@@ -6,7 +6,7 @@ import { setLike } from "../../redux/slices/pizzaSlice";
 
 
 const PizzaBlockForDetail = ({ id, title, imageUrl, sizes, types, price,like }) => {
-  const typeName = ["тонкое", "традиционное"];
+  
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
   const dispatch = useDispatch();
@@ -32,14 +32,14 @@ const PizzaBlockForDetail = ({ id, title, imageUrl, sizes, types, price,like }) 
       title,
       price,
       imageUrl,
-      type: typeName[activeType],
-      size: sizes[activeSize],
+      types,
+      sizes,
       date: {date: date.getDate(),month: date.getMonth(),year: date.getFullYear()}
     };
     
-    if (item.type === undefined) {
+    if (item.types[0] === undefined) {
       alertify.error("Вы не выбрали тип");
-    } else if (item.size === undefined) {
+    } else if (item.sizes[0] === undefined) {
       alertify.error("Вы не выбрали размер");
     } else {
       alertify.success("Вы добавили " + item.title);
@@ -60,7 +60,7 @@ const PizzaBlockForDetail = ({ id, title, imageUrl, sizes, types, price,like }) 
                 onClick={() => setActiveType(index)}
                 className={activeType === index ? "active" : ""}
               >
-                {typeName[type]}
+                {type.label}
               </li>
             ))}
           </ul>
@@ -73,7 +73,7 @@ const PizzaBlockForDetail = ({ id, title, imageUrl, sizes, types, price,like }) 
                 className={activeSize === index ? "active" : ""}
                 onClick={() => setActiveSize(index)}
               >
-                {size} см.
+                {size.label} см.
               </li>
             ))}
           </ul>
