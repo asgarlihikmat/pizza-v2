@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import Update from "./Update";
+import Add from "./Add";
 
 const AdminTable = () => {
-  const typeName = ["тонкое", "традиционное"];
   const { pizza } = useSelector((state) => state.pizzaSlice);
 
   return (
     <div className="admin__container">
+      <Add />
       <table className="admin__table table table-striped table-hover border">
         <thead>
           <tr>
@@ -29,7 +30,7 @@ const AdminTable = () => {
               <td>
               <ul className="admin__list">
               {item.types.map(m => (
-                <li>{typeName[m]}</li>
+                <li>{m.label}</li>
               ))}
               </ul>
               </td>
@@ -38,7 +39,7 @@ const AdminTable = () => {
               <td>
                 <ul className="admin__list">
               {item.sizes.map(m => (
-                <li>{m}</li>
+                <li>{m.label}</li>
               ))}
               </ul>
               </td>

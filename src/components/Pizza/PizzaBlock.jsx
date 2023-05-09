@@ -7,10 +7,18 @@ import nolikes from '../../assets/icons/liked.png'
 
 import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
-
+const sizesList = [
+  {label: '26 см',value: 26},
+  {label: '30 см',value: 30},
+  {label: '40 см',value: 40}
+]
+const typeName = [
+  {label: 'тонкое',value: 1},
+  {label: 'традиционное',value: 2}
+]
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   const navigation = useNavigate();
-  const typeName = ["тонкое", "традиционное"];
+  
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
   const dispatch = useDispatch();
@@ -37,14 +45,14 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       title,
       price,
       imageUrl,
-      type: typeName[activeType],
-      size: sizes[activeSize],
+      types:typeName,
+      sizes,
       date: {date: date.getDate(),month: date.getMonth(),year: date.getFullYear()}
     };
-    
-    if (item.type === undefined) {
+    console.log(item);
+    if (item.types === undefined) {
       alertify.error("Вы не выбрали тип");
-    } else if (item.size === undefined) {
+    } else if (item.sizes === undefined) {
       alertify.error("Вы не выбрали размер");
     } else {
       alertify.success("Вы добавили " + item.title);
@@ -74,20 +82,20 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
                 onClick={() => setActiveType(index)}
                 className={activeType === index ? "active" : ""}
               >
-                {typeName[type]}
+                {type.label}
               </li>
             ))}
           </ul>
         </div>
         <div className="blockpizza__two">
           <ul>
-            {sizes.map((size, index) => (
+            {sizesList.map((size, index) => (
               <li
                 key={index}
                 className={activeSize === index ? "active" : ""}
                 onClick={() => setActiveSize(index)}
               >
-                {size} см.
+                {size.label}
               </li>
             ))}
           </ul>

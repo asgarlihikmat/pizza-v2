@@ -60,7 +60,7 @@ const Order = () => {
               Очистить корзину
             </div>
           </div>
-          {/* ------ */}
+         
           {addedPizzaList.map((pizza, index) => (
             <div key={index} className="order__body">
               <div className="order__text">
@@ -70,7 +70,7 @@ const Order = () => {
                 <div className="order__text__body">
                   <div className="order__title">{pizza.title}</div>
                   <div className="order__title__text">
-                    {pizza.type} / {pizza.size} см.
+                    {pizza.label} / {pizza.label} см.
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const Order = () => {
               </div>
             </div>
           ))}
-          {/* --------- */}
+          
           <div className="order__count">
             <div className="order__all">
               Всего пицц: <span>{count} шт.</span>

@@ -1,11 +1,33 @@
-{ 
-    "pizzas":[
+{
+  "pizzas": [
     {
       "id": "0",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
       "title": "Пепперони Фреш с перцем",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+      "sizes": [
+        {
+          "label": "26 см",
+          "value": 26
+        },
+        {
+          "label": "30 см",
+          "value": 30
+        },
+        {
+          "label": "40 см",
+          "value": 40
+        }
+      ],
+      "types": [
+        {
+          "label": "тонкое",
+          "value": 1
+        },
+        {
+          "label": "традиционное",
+          "value": 2
+        }
+      ],
       "price": 803,
       "category": 0,
       "rating": 4,
@@ -15,8 +37,30 @@
       "id": "1",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/2ffc31bb-132c-4c99-b894-53f7107a1441.jpg",
       "title": "Сырная",
-      "types": [0],
-      "sizes": [26, 40],
+      "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 245,
       "category": 0,
       "rating": 6,
@@ -26,8 +70,30 @@
       "id": "2",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
       "title": "Цыпленок барбекю",
-      "types": [0],
-      "sizes": [26, 40],
+      "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 295,
       "category": 1,
       "rating": 4,
@@ -37,8 +103,30 @@
       "id": "3",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/af553bf5-3887-4501-b88e-8f0f55229429.jpg",
       "title": "Кисло-сладкий цыпленок",
-      "types": [1],
-      "sizes": [26, 30, 40],
+      "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 275,
       "category": 2,
       "rating": 2,
@@ -48,8 +136,30 @@
       "id": "4",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
       "title": "Чизбургер-пицца",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+      "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 415,
       "category": 3,
       "rating": 8,
@@ -59,8 +169,30 @@
       "id": "5",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg",
       "title": "Крэйзи пепперони",
-      "types": [0],
-      "sizes": [30, 40],
+      "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 580,
       "category": 2,
       "rating": 2,
@@ -70,8 +202,30 @@
       "id": "6",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d2e337e9-e07a-4199-9cc1-501cc44cb8f8.jpg",
       "title": "Пепперони",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 675,
       "category": 1,
       "rating": 9,
@@ -81,8 +235,30 @@
       "id": "7",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
       "title": "Маргарита",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 450,
       "category": 4,
       "rating": 10,
@@ -92,8 +268,30 @@
       "id": "8",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/ec29465e-606b-4a04-a03e-da3940d37e0e.jpg",
       "title": "Четыре сезона",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 395,
       "category": 5,
       "rating": 10,
@@ -103,8 +301,30 @@
       "id": "9",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
       "title": "Овощи и грибы 🌱",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 285,
       "category": 5,
       "rating": 7,
@@ -114,8 +334,30 @@
       "id": "10",
       "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
       "title": "Авощи и грибы 🌱",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 290,
       "category": 5,
       "rating": 7,
@@ -125,8 +367,30 @@
       "id": "11",
       "imageUrl": "https://pizzamizza.az/upload/iblock/f23/f238ce28ac3c02d5d6a82a80249f9a48.jpg?1617617212114168",
       "title": "Фунги Кон Поло",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 120,
       "category": 5,
       "rating": 8,
@@ -136,8 +400,30 @@
       "id": "12",
       "imageUrl": "https://pizzamizza.az/upload/iblock/b30/b30d1e5de4821be1816d952c60800e1b.jpg?1617617212118957",
       "title": "Спечиале",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 140,
       "category": 5,
       "rating": 9,
@@ -147,8 +433,30 @@
       "id": "13",
       "imageUrl": "https://pizzamizza.az/upload/iblock/f59/f59ed0dec6a9812b3b48a6fd32d32f76.jpg?1617617212127733",
       "title": "Мексикана",
-      "types": [0, 1],
-      "sizes": [26, 30, 40],
+       "sizes": [
+        {
+         "label": "26 см",
+         "value": 26
+        },
+        {
+         "label": "30 см",
+         "value": 30
+        },
+        {
+         "label": "40 см",
+         "value": 40
+        }
+       ],
+       "types": [
+        {
+         "label": "тонкое",
+         "value": 1
+        },
+        {
+         "label": "традиционное",
+         "value": 2
+        }
+       ],
       "price": 160,
       "category": 6,
       "rating": 10,

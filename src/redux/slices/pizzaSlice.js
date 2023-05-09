@@ -18,6 +18,14 @@ export const fetchPizzas = createAsyncThunk(
   }
 );
 
+export const postPizzas = createAsyncThunk(
+  "pizza/postPizzasStatus",
+  async (add) => {
+    axios.post('https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz',add)
+    
+  }
+);
+
 export const pizzaSlice = createSlice({
   name: "pizza",
   initialState,
