@@ -54,9 +54,9 @@ function addPizza(sizes,types) {
       alertify.error("Заполноте пажалуйста цену пиццы");
     } else if (category === undefined) {
       alertify.error("Заполноте пажалуйста категорию пиццы");
-    } else if (types === undefined) {
+    } else if (types[0] === undefined) {
       alertify.error("Заполноте пажалуйста тип пиццы");
-    } else if (sizes === undefined) {
+    } else if (sizes[0] === undefined) {
       alertify.error("Заполноте пажалуйста размер пиццы");
     } else {
       dispatch(postPizzas(allAddedItems));
