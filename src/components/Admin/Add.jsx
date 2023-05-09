@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { postPizzas } from "../../redux/slices/pizzaSlice";
 import { MultiSelect } from "react-multi-select-component";
 import { useNavigate } from "react-router-dom";
+import { Button, Modal } from "react-bootstrap";
 
 
 const typesList = [
@@ -16,12 +17,13 @@ const sizesList = [
   {label: '40 см',value: 40}
 ]
 const Add = () => {
+  const[open,setOpen] = React.useState(false);
   const navigate = useNavigate();
   const[sizes,setSize] = React.useState([]);
   const[types,setType] = React.useState([]);
   const [handleAdd, setHandleAdd] = React.useState([]);
   const dispatch = useDispatch();
-
+  console.log(open);
   function handleChange(event) {
     const { name, value } = event.target;
     setHandleAdd({...handleAdd,[name]:value})
@@ -60,46 +62,29 @@ function addPizza(sizes,types) {
       dispatch(postPizzas(allAddedItems));
       alertify.success('Вы успешно создали новую пиццу!')
       setHandleAdd([]);
+      setOpen(!open);
     }
     
   }
  
   return (
-    <div>
-      <button
-        type="button"
-        class="btn btn-success"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-      >
-        Добавить новую пиццу
-      </button>
+    <>
 
-      <div
-        class="modal fade"
-        id="staticBackdrop"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
+      <Button variant="success" onClick={() => setOpen(!open)}>
+      Добавить новую пиццу
+      </Button>
+     
+      <Modal
+        show={open}
+        onHide={open}
+        backdrop="static"
+        keyboard={false}
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Добавить новую пиццу
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              {/* ------- */}
-              <div class="input-group flex-nowrap">
+        <Modal.Header closeButton>
+          <Modal.Title>Добавить новую пиццу</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">
                   Фото URL пиццы
                 </span>
@@ -180,29 +165,20 @@ function addPizza(sizes,types) {
                 onChange={setSize}
                 labelledBy="Выбрать..."
               />
-              {/* ------- */}
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                onClick={() => addPizza(sizes,types)}
-                type="button"
-                class="btn btn-primary"
-              >
-                Добавить
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={()=> setOpen(!open)}>
+            Закрыть
+          </Button>
+          <Button variant="primary" onClick={()=> addPizza(sizes,types)}>Добавить</Button>
+        </Modal.Footer>
+      </Modal>
+
+     
+    </>
   );
 };
+
+
 
 export default Add;
