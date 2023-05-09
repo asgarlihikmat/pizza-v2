@@ -7,15 +7,7 @@ import nolikes from '../../assets/icons/liked.png'
 
 import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
-const sizesList = [
-  {label: '26 см',value: 26},
-  {label: '30 см',value: 30},
-  {label: '40 см',value: 40}
-]
-const typeName = [
-  {label: 'тонкое',value: 1},
-  {label: 'традиционное',value: 2}
-]
+
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   const navigation = useNavigate();
   
@@ -45,14 +37,14 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       title,
       price,
       imageUrl,
-      types:typeName,
+      types,
       sizes,
       date: {date: date.getDate(),month: date.getMonth(),year: date.getFullYear()}
     };
     console.log(item);
-    if (item.types === undefined) {
+    if (item.types[0] === undefined) {
       alertify.error("Вы не выбрали тип");
-    } else if (item.sizes === undefined) {
+    } else if (item.sizes[0] === undefined) {
       alertify.error("Вы не выбрали размер");
     } else {
       alertify.success("Вы добавили " + item.title);
@@ -89,7 +81,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
         </div>
         <div className="blockpizza__two">
           <ul>
-            {sizesList.map((size, index) => (
+            {sizes.map((size, index) => (
               <li
                 key={index}
                 className={activeSize === index ? "active" : ""}
