@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const typesList = [
-  {label: 'тонкое',value: 1 },
+  {label: 'тонкое',value: 1},
   {label: 'традиционное',value: 2}
 ]
 const sizesList = [
@@ -45,7 +45,7 @@ function addPizza(sizes,types) {
     }
   
     if (imageUrl === undefined || imageUrl === "") {
-      alertify.error("Заполноте пажалуйста фото пиццы");
+      alertify.error("Заполноте пажалуйста фото пиццы  ");
     } else if (title === undefined || title === "") {
       alertify.error("Заполноте пажалуйста имя пиццы");
     } else if (price === undefined || price === "") {
