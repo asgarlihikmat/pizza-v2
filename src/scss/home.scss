@@ -933,3 +933,11 @@ body::-webkit-scrollbar {
 .input-group{
   margin-bottom: 10px;
 }
+.update__image {
+  display: flex;
+  justify-content: center;
+}
+.update__image img{
+  width: 200px;
+  height: 200px;
+}

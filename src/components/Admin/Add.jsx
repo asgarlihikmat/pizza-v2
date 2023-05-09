@@ -80,7 +80,7 @@ function addPizza(sizes,types) {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Добавить новую пиццу</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -155,7 +155,7 @@ function addPizza(sizes,types) {
                 options={typesList}
                 value={types}
                 onChange={setType}
-                labelledBy="Выбрать..."
+                aria-labelledby="Выбрать..."
               />
               
               {/* ------- */}
@@ -165,6 +165,8 @@ function addPizza(sizes,types) {
                 onChange={setSize}
                 labelledBy="Выбрать..."
               />
+
+              {/* ---------- */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={()=> setOpen(!open)}>
