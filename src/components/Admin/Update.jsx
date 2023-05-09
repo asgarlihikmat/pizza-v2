@@ -6,7 +6,7 @@ const Update = ({item}) => {
     const dispatch = useDispatch();
   
   function deleteProduct(item) {
-   const sekret = prompt('Удалить может только Хикмет *) или добавьте секретное слова чтобы удалить')
+   const sekret = prompt('Only Hikmet can delete *) or add a secret word to delete')
    if(sekret === 'javascript'){
     alertify.success("Вы удалили пиццу!!");
     dispatch(deletePizza(item.id));
