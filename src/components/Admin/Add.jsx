@@ -58,10 +58,10 @@ function addPizza(sizes,types) {
       alertify.error("Заполноте пажалуйста размер пиццы");
     } else {
       dispatch(postPizzas(allAddedItems));
-      alertify.success('Вы успешно создали новую пиццу!')
       setHandleAdd([]);
-      setOpen(!open);
       setRender(true);
+      setOpen(!open);
+      alertify.success('Вы успешно создали новую пиццу!')
     }
     
   }

@@ -15,8 +15,8 @@ const AdminTable = () => {
   };
   
   React.useEffect(()=>{
-    getsPizzas();
     setRender(false);
+    getsPizzas();
   },[render])
   
 
