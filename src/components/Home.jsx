@@ -19,18 +19,17 @@ import { setCategoryIndex } from "../redux/slices/categorySlice";
 function Home() {
   const {id} = useParams();
   const navigate = useNavigate();
-  const[page,setPage] = React.useState(1);
+  
   const dispatch = useDispatch();
   const categoryId = useSelector((state) => state.categorySlice.categories);
-  const { status } = useSelector((state) => state.pizzaSlice);
+  const { page,limit,status } = useSelector((state) => state.pizzaSlice);
   const { filter, sort } = useSelector((state) => state.filterSlice);
-  const { limit } = useSelector((state) => state.paginateSlice);
   const { pathname } = useLocation();
   
   const getPizzas = async () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const filters = filter ? `&search=${filter}` : "";
-    const pagesAndLimit = page > 1 ? `&page=${page}&limit=${limit}`: '';
+    const pagesAndLimit = limit ? `&page=${page}&limit=${limit}`: '';
     const sortPizza = sort.name
       ? `&sortby=${sort.nameType}&order=${sort.type}`
       : "";
@@ -40,7 +39,7 @@ function Home() {
 
   React.useEffect(() => {
     getPizzas();
-  }, [categoryId, filter, page, limit, sort]);
+  }, [categoryId, filter, page,limit, sort]);
   
   function homePage() {
       dispatch(setCategoryIndex(0))
@@ -98,7 +97,7 @@ function Home() {
 
         </div>
       </div>
-      { pathname === "/admin"||pathname === "/order" || pathname === "/orderdetail" || pathname === `/pizza/${id}` ? '' :  <Pagination setPage={setPage} />}
+      { pathname === "/admin"||pathname === "/order" || pathname === "/orderdetail" || pathname === `/pizza/${id}` ? '' :  <Pagination />}
      
       <div className="createdBy">
         <div className="createdBy__title">Hikmat Asgarli</div>

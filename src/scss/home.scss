@@ -165,6 +165,7 @@ body::-webkit-scrollbar {
   }
 
   &__title {
+    cursor: pointer;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
     font-size: 50px;
@@ -465,14 +466,16 @@ body::-webkit-scrollbar {
 
 .createdBy {
   display: flex;
-  justify-content: center;
-  padding-top: 10px;
+  justify-content: flex-end;
+  //margin: 0px 260px 0px 0px;
 
   &__title {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     color: #fe5f1e;
     filter: blur(0.8px);
+    margin: -16px 0px 0px 0px;
+    padding: 0px 300px 20px 80px;
   }
 }
 
@@ -637,7 +640,7 @@ body::-webkit-scrollbar {
 .pagination {
   display: flex;
   justify-content: center;
-  margin: 40px 0px 0px 0px;
+  margin: 20px 0px;
 }
 .pageClassName {
   cursor: pointer;
@@ -666,21 +669,19 @@ body::-webkit-scrollbar {
   width: 30px;
 }
 
-.limit {
-  display: inline-block;
-  cursor: pointer;
-  border: 1px solid #f3f3f3;
-  font-size: 20px;
-  border-radius: 30px;
-  padding: 10px;
+
+.limit  {
+  margin: -60px 0px 0px 270px;
+  
 }
 .limit select {
   cursor: pointer;
-  font-size: 20px;
   color: white;
   background-color: #fe5f1e;
   border-radius: 30px;
   border: 1px solid #f3f3f3;
+  width: 200px;
+
 }
 
 .recentorder {

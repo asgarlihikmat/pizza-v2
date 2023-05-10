@@ -5,6 +5,8 @@ const initialState = {
   pizza: [],
   like: [],
   status: 'loading',
+  page: 1,
+  limit: 20
 };
 
 export const fetchPizzas = createAsyncThunk(
@@ -14,7 +16,7 @@ export const fetchPizzas = createAsyncThunk(
     const { data } = await axios.get(
       `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz?${category}${filters}${sortPizza}${pagesAndLimit}`
     );
-    return data;
+    return data; 
   }
 );
 
@@ -48,6 +50,13 @@ export const pizzaSlice = createSlice({
         state.like.push(newState);
       }
     },
+    setPage(state,action){
+      state.page = action.payload;
+    },
+    setLimit(state,action){
+      state.limit = action.payload;
+
+    }
   },
   extraReducers: {
     [fetchPizzas.pending]: (state) => {
@@ -65,5 +74,5 @@ export const pizzaSlice = createSlice({
   },
 });
 
-export const { getAllPizzas, setLike } = pizzaSlice.actions;
+export const { getAllPizzas, setLike,setPage,setLimit } = pizzaSlice.actions;
 export default pizzaSlice.reducer;

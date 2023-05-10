@@ -2,30 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
-import { setPage, setLimit,pizzaCountFetch } from "../../redux/slices/paginateSlice";
+import { setLimit,setPage} from "../../redux/slices/pizzaSlice";
 import left from "../../assets/icons/left.png";
 import right from "../../assets/icons/right.png";
 
-function Pagination({setPage}) {
+function Pagination() {
     const dispatch = useDispatch();
+    const {page,limit} = useSelector(state => state.pizzaSlice)
+  console.log(page);
 
-    const getPizzas = async () => {
-        dispatch(pizzaCountFetch());
-    }
-    React.useEffect(()=>{
-      getPizzas()
-    },[])
-
-    const {limit,pizzaCount} = useSelector(state => state.paginateSlice);
-    const pageCount = Math.ceil(pizzaCount.length / limit);
+    const pageCount = Math.ceil(13 / limit);
 
   function handleChange(event) {
       const{value} = event.target;
       dispatch(setLimit(value))
   }
-  function onHandleChange({selected}) {
-      setPage(selected + 1)
-  }
+
   return (
     <>
        <ReactPaginate
@@ -35,22 +27,22 @@ function Pagination({setPage}) {
         pageClassName="pageClassName"
         nextLabel={<img src={right}></img>}
 
-        onPageChange={onHandleChange}
+        onPageChange={(event) => dispatch(setPage(event.selected + 1))}
         
         pageCount={pageCount}
         previousLabel={<img src={left}></img>}
       />
 
       <div className="limit">
-        <label>Лимит страницы:</label>
-        <select onChange={handleChange} >
-       
-          <option value="12">12</option>
-          <option value="10">10</option>
-          <option value="5">5</option>
-          <option value="3">3</option>
-        </select>
+
+        <select onChange={handleChange} class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option selected>Pagination</option>
+              <option value="10">10</option>
+              <option value="5">5</option>
+              <option value="3">3</option>
+          </select>
       </div>
+      
     </>
   );
 }

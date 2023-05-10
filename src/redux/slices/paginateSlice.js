@@ -1,36 +1,36 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+// import axios from "axios";
 
-const initialState = {
+// const initialState = {
  
-  limit: 15,
-  pizzaCount: []
-};
+//   limit: 15,
+//   pizzaCount: []
+// };
 
-export const pizzaCountFetch = createAsyncThunk("pizza/pizzaCountStatus",
-async () => {
-  const { data } = await axios.get(
-    `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz`
-  );
-  return data;
-})
+// export const pizzaCountFetch = createAsyncThunk("pizza/pizzaCountStatus",
+// async () => {
+//   const { data } = await axios.get(
+//     `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz`
+//   );
+//   return data;
+// })
 
-export const paginateSlice = createSlice({
-  name: "page",
-  initialState,
-  reducers: {
-    setLimit(state, action) {
-      state.limit = action.payload;
-    }
-  },
-  extraReducers: {
-    [pizzaCountFetch.fulfilled]: (state, action) => {
-      state.pizzaCount = action.payload;
-      state.status = 'success'
-    }
+// export const paginateSlice = createSlice({
+//   name: "page",
+//   initialState,
+//   reducers: {
+//     setLimit(state, action) {
+//       state.limit = action.payload;
+//     }
+//   },
+//   extraReducers: {
+//     [pizzaCountFetch.fulfilled]: (state, action) => {
+//       state.pizzaCount = action.payload;
+//       state.status = 'success'
+//     }
    
-  },
-});
+//   },
+// });
 
-export const { setPage, setLimit } = paginateSlice.actions;
-export default paginateSlice.reducer;
+// export const { setPage, setLimit } = paginateSlice.actions;
+// export default paginateSlice.reducer;
