@@ -60,8 +60,8 @@ function addPizza(sizes,types) {
       dispatch(postPizzas(allAddedItems));
       alertify.success('Вы успешно создали новую пиццу!')
       setHandleAdd([]);
-      setRender(true);
       setOpen(!open);
+      setRender(true);
     }
     
   }
