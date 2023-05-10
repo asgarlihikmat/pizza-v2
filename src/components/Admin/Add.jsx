@@ -86,63 +86,63 @@ function addPizza(sizes,types) {
           <Modal.Title>Добавить новую пиццу</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">
+        <div className="input-group flex-nowrap">
+                <span className="input-group-text" id="addon-wrapping">
                   Фото URL пиццы
                 </span>
                 <input
                   onChange={handleChange}
                   name="imageUrl"
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Добавьте Url Image"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
                 />
               </div>
               {/* ------- */}
-              <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">
+              <div className="input-group flex-nowrap">
+                <span className="input-group-text" id="addon-wrapping">
                   Имя Пицци
                 </span>
                 <input
                   onChange={handleChange}
                   name="title"
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Добавтье имя пиццы"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
                 />
               </div>
               {/* ------- */}
-              <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping">
+              <div className="input-group flex-nowrap">
+                <span className="input-group-text" id="addon-wrapping">
                   Цена пиццы
                 </span>
                 <input
                   onChange={handleChange}
                   name="price"
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Добавтье цену пиццы"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
                 />
               </div>
               {/* ------- */}
-              <div class="input-group">
-                <label class="input-group-text" for="inputGroupSelect01">
+              <div className="input-group">
+                <label className="input-group-text" htmlFor="inputGroupSelect01">
                   Категория пиццы
                 </label>
                 <select
                   onChange={handleChange}
                   name="category"
-                  class="form-select"
+                  className="form-select"
                   id="inputGroupSelect01"
                   
                 >
-                  <option selected>Выбрать...</option>
+                  <option >Выбрать...</option>
                   <option value="0">Все</option>
                   <option value="1">Мясные</option>
                   <option value="2">Гриль</option>

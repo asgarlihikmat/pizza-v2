@@ -63,7 +63,8 @@ function Home() {
                   </div>
                 </div>
             </div>
-            {pathname === "/liked" ||
+            {pathname === `/pizza/${id}` ||
+            pathname === "/liked" ||
             pathname === "/admin" ||
             pathname === "/order" ||
             pathname === "/orderdetail" ? (

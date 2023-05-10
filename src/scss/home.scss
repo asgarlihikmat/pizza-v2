@@ -266,9 +266,7 @@ body::-webkit-scrollbar {
     font-weight: 700;
   }
   &__popular {
-    cursor: pointer;
-    font-size: 14px;
-    color: #fe5f1e;
+    width: 130px;
     margin-left: 10px;
   }
   &__popular:hover {

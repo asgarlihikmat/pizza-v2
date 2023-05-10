@@ -15,7 +15,7 @@ const sizesList = [
   { label: "40 см", value: 40 },
 ];
 const categoryList = [
-  "Все ",
+  "Все",
   "Мясные",
   "Вегетарианская",
   "Гриль",
@@ -27,9 +27,11 @@ const Update = ({ item }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [updatedProduct, setUpdatedProduct] = React.useState(item);
-  const [sizes, setSize] = React.useState([]);
-  const [types, setType] = React.useState([]);
-
+  const [sizes, setSize] = React.useState(item.sizes);
+  const [types, setType] = React.useState(item.types);
+  const[category,setCategory] =React.useState();
+  
+  
   function deleteProduct(item) {
     const sekret = prompt(
       "Only Hikmet can delete *) or add a secret word to delete"
@@ -41,13 +43,19 @@ const Update = ({ item }) => {
       alertify.error("Не верно родноййй!!");
     }
   }
+  function categoryChange(event) {
+    const { name, value } = event.target;
+    setCategory(value);
+  }
   function handleChange(event) {
     const { name, value } = event.target;
-
     setUpdatedProduct({ ...updatedProduct, [name]: value });
+   
   }
-  function updateProduct(updatedProduct) {
-    const { imageUrl, title, price, category, id } = updatedProduct;
+
+  function updateProduct(updatedProduct,category) {
+    const { imageUrl, title, price, id } = updatedProduct;
+    
     const allUpdatedroduct = {
       id,
       sizes,
@@ -55,7 +63,7 @@ const Update = ({ item }) => {
       imageUrl,
       title,
       price,
-      category,
+      category
     };
 
     if (imageUrl === undefined || imageUrl === "") {
@@ -144,11 +152,11 @@ const Update = ({ item }) => {
               />
             </InputGroup>
             {/* ------- */}
-            <div class="input-group">
-              <label class="input-group-text" for="inputGroupSelect01">
+            <div className="input-group">
+              <label className="input-group-text" htmlFor="inputGroupSelect01">
                 Категория пиццы
               </label>
-              <Form.Select aria-label="Default select example">
+              <Form.Select onChange={categoryChange} aria-label="Default select example">
                 <option>Выбран - {categoryList[item.category]}</option>
                 <option value="0">Все</option>
                 <option value="1">Мясные</option>
@@ -161,18 +169,7 @@ const Update = ({ item }) => {
             </div>
 
             {/* ------- */}
-            <InputGroup size="sm" className="">
-         <InputGroup.Text id="inputGroup-sizing-sm">Выбранный тип</InputGroup.Text>
-         
-         {item.types.map(typess => (
-          <Form.Control
-          value={typess.label}
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm"
-        />
-         ))}
-        
-      </InputGroup>
+            
             <MultiSelect
             className="mb-2"
               options={typesList}
@@ -182,18 +179,7 @@ const Update = ({ item }) => {
             />
 
             {/* ------- */}
-            <InputGroup size="sm" className="">
-         <InputGroup.Text id="inputGroup-sizing-sm">Выбранный тип</InputGroup.Text>
-         
-         {item.sizes.map(sizess => (
-          <Form.Control
-          value={sizess.label}
-          aria-label="Small"
-          aria-describedby="inputGroup-sizing-sm"
-        />
-         ))}
-        
-      </InputGroup>
+            
             <MultiSelect
               options={sizesList}
               value={sizes}
@@ -210,7 +196,7 @@ const Update = ({ item }) => {
           </Button>
           <Button
             variant="primary"
-            onClick={() => updateProduct(updatedProduct)}
+            onClick={() => updateProduct(updatedProduct,category)}
           >
             Добавить
           </Button>

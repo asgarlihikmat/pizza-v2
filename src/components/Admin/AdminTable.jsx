@@ -4,10 +4,12 @@ import Add from "./Add";
 import React from 'react'
 
 const AdminTable = () => {
-  const { pizza } = useSelector((state) => state.pizzaSlice);
-  React.useEffect(()=>{
+  const { pizza,status } = useSelector((state) => state.pizzaSlice);
+  
 
-  },[])
+  React.useEffect(()=>{
+      console.log('render');
+  },[pizza])
   
   return (
     <div className="admin__container">
@@ -33,8 +35,8 @@ const AdminTable = () => {
               <td>{item.price} руб.</td>
               <td>
               <ul className="admin__list">
-              {item.types.map(m => (
-                <li>{m.label}</li>
+              {item.types.map((m,index) => (
+                <li key={index}>{m.label}</li>
               ))}
               </ul>
               </td>
@@ -42,8 +44,8 @@ const AdminTable = () => {
 
               <td>
                 <ul className="admin__list">
-              {item.sizes.map(m => (
-                <li>{m.label}</li>
+              {item.sizes.map((m,index) => (
+                <li key={index}>{m.label}</li>
               ))}
               </ul>
               </td>
