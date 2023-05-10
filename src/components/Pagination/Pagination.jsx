@@ -8,8 +8,8 @@ import right from "../../assets/icons/right.png";
 
 function Pagination() {
     const dispatch = useDispatch();
-    const {page,limit} = useSelector(state => state.pizzaSlice)
-  console.log(page);
+    const {page,limit,pizza} = useSelector(state => state.pizzaSlice)
+  console.log(pizza.length);
 
     const pageCount = Math.ceil(13 / limit);
 
@@ -36,7 +36,7 @@ function Pagination() {
       <div className="limit">
 
         <select onChange={handleChange} class="form-select form-select-sm" aria-label=".form-select-sm example">
-              <option selected>Pagination</option>
+              <option value="15" selected>Pagination</option>
               <option value="10">10</option>
               <option value="5">5</option>
               <option value="3">3</option>

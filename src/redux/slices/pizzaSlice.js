@@ -6,7 +6,7 @@ const initialState = {
   like: [],
   status: 'loading',
   page: 1,
-  limit: 20
+  limit: 15
 };
 
 export const fetchPizzas = createAsyncThunk(

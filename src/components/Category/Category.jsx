@@ -3,7 +3,7 @@ import strelka from "../../assets/icons/Vector.svg";
 import React, { useRef } from "react";
 import { setCategoryIndex } from "../../redux/slices/categorySlice";
 import { setSort } from "../../redux/slices/filterSlice";
-import {setPage} from '../../redux/slices/paginateSlice'
+import {setPage} from '../../redux/slices/pizzaSlice'
 import { Form, ListGroup } from "react-bootstrap";
 
 const Category = () => {
@@ -32,6 +32,7 @@ const Category = () => {
 
   function changeCategory(index) {
     dispatch(setCategoryIndex(index));
+    dispatch(setPage(1));
      
   }
   function onHandleChange(event) {

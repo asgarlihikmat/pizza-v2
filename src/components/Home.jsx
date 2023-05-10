@@ -29,7 +29,7 @@ function Home() {
   const getPizzas = async () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const filters = filter ? `&search=${filter}` : "";
-    const pagesAndLimit = limit ? `&page=${page}&limit=${limit}`: '';
+    const pagesAndLimit = limit === 15 ? '' : `&page=${page}&limit=${limit}`;
     const sortPizza = sort.name
       ? `&sortby=${sort.nameType}&order=${sort.type}`
       : "";
