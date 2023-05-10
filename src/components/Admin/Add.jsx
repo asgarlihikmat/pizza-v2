@@ -1,7 +1,7 @@
 import alertify from "alertifyjs";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { postPizzas } from "../../redux/slices/pizzaSlice";
+import { postPizzas } from "../../redux/slices/adminSlice";
 import { MultiSelect } from "react-multi-select-component";
 import { useNavigate } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
@@ -16,7 +16,7 @@ const sizesList = [
   {label: '30 см',value: 30},
   {label: '40 см',value: 40}
 ]
-const Add = () => {
+const Add = ({setRender}) => {
   const[open,setOpen] = React.useState(false);
   const navigate = useNavigate();
   const[sizes,setSize] = React.useState([]);
@@ -29,9 +29,7 @@ const Add = () => {
     setHandleAdd({...handleAdd,[name]:value})
   }
 
-  React.useEffect(()=>{
-    navigate('/admin');
-  },[])
+
 
 
 function addPizza(sizes,types) {
@@ -62,6 +60,7 @@ function addPizza(sizes,types) {
       dispatch(postPizzas(allAddedItems));
       alertify.success('Вы успешно создали новую пиццу!')
       setHandleAdd([]);
+      setRender(true);
       setOpen(!open);
     }
     

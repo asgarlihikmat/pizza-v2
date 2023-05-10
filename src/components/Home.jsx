@@ -41,6 +41,7 @@ function Home() {
   React.useEffect(() => {
     getPizzas();
   }, [categoryId, filter, page, limit, sort]);
+  
   function homePage() {
       dispatch(setCategoryIndex(0))
       navigate('/')

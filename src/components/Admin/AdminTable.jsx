@@ -1,19 +1,27 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Update from "./Update";
 import Add from "./Add";
 import React from 'react'
+import { fetchAdminPizzas } from "../../redux/slices/adminSlice";
 
 const AdminTable = () => {
-  const { pizza,status } = useSelector((state) => state.pizzaSlice);
-  
+  const dispatch = useDispatch();
+  const[render,setRender] = React.useState(false);
+  const { allpizza,status } = useSelector((state) => state.adminSlice);
+  console.log(status);
 
+  const getsPizzas = async () => {
+    dispatch(fetchAdminPizzas());
+  };
+  
   React.useEffect(()=>{
-      console.log('render');
-  },[pizza])
+    getsPizzas();
+    setRender(false);
+  },[render])
   
   return (
     <div className="admin__container">
-      <Add />
+      <Add setRender={setRender}/>
       <table className="admin__table table table-striped table-hover border">
         <thead>
           <tr>
@@ -27,7 +35,7 @@ const AdminTable = () => {
           </tr>
         </thead>
         <tbody>
-          {pizza.map((item) => (
+          {allpizza.map((item) => (
             <tr key={item.id}>
               <th scope="row">{item.id}</th>
               <td><img className="admin__image" src={item.imageUrl}/></td>
@@ -51,7 +59,7 @@ const AdminTable = () => {
               </td>
               <td>
                
-                <Update item={item}/>
+                <Update setRender={setRender} item={item}/>
                
               </td>
             </tr>

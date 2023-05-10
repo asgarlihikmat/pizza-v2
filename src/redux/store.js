@@ -6,6 +6,7 @@ import filterSlice from "./slices/filterSlice";
 import addSlice from "./slices/addSlice";
 import paginateSlice from "./slices/paginateSlice";
 import orderedSlice from "./slices/orderedSlice";
+import adminSlice from "./slices/adminSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     filterSlice,
     addSlice,
     paginateSlice,
-    orderedSlice
+    orderedSlice,
+    adminSlice
   },
 });

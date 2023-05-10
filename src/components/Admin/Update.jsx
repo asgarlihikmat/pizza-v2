@@ -2,7 +2,7 @@ import React from "react";
 import alertify from "alertifyjs";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { deletePizza, updatePizza } from "../../redux/slices/pizzaSlice";
+import { deletePizza, updatePizza } from "../../redux/slices/adminSlice";
 import { MultiSelect } from "react-multi-select-component";
 
 const typesList = [
@@ -15,6 +15,7 @@ const sizesList = [
   { label: "40 см", value: 40 },
 ];
 const categoryList = [
+  
   "Все",
   "Мясные",
   "Вегетарианская",
@@ -22,14 +23,12 @@ const categoryList = [
   "Острые",
   "Закрытые",
 ];
-const Update = ({ item }) => {
-  
+const Update = ({ item,setRender }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [updatedProduct, setUpdatedProduct] = React.useState(item);
   const [sizes, setSize] = React.useState(item.sizes);
   const [types, setType] = React.useState(item.types);
-  const[category,setCategory] =React.useState();
   
   
   function deleteProduct(item) {
@@ -37,24 +36,22 @@ const Update = ({ item }) => {
       "Only Hikmet can delete *) or add a secret word to delete"
     );
     if (sekret === "javascript") {
+      setRender(true);
       alertify.success("Вы удалили пиццу!!");
       dispatch(deletePizza(item.id));
+      
     } else {
       alertify.error("Не верно родноййй!!");
     }
   }
-  function categoryChange(event) {
-    const { name, value } = event.target;
-    setCategory(value);
-  }
+
   function handleChange(event) {
     const { name, value } = event.target;
     setUpdatedProduct({ ...updatedProduct, [name]: value });
-   
+    
   }
-
-  function updateProduct(updatedProduct,category) {
-    const { imageUrl, title, price, id } = updatedProduct;
+  function updateProduct(updatedProduct) {
+    const { imageUrl, title, price, id,category } = updatedProduct;
     
     const allUpdatedroduct = {
       id,
@@ -82,6 +79,7 @@ const Update = ({ item }) => {
       alertify.success('Вы успешно изменили пиццу!')
       dispatch(updatePizza(allUpdatedroduct));
       setOpen(!open);
+      setRender(true);
     }  
 
    
@@ -156,14 +154,11 @@ const Update = ({ item }) => {
               <label className="input-group-text" htmlFor="inputGroupSelect01">
                 Категория пиццы
               </label>
-              <Form.Select onChange={categoryChange} aria-label="Default select example">
+              <Form.Select name='category' onChange={handleChange} aria-label="Default select example">
                 <option>Выбран - {categoryList[item.category]}</option>
-                <option value="0">Все</option>
-                <option value="1">Мясные</option>
-                <option value="2">Гриль</option>
-                <option value="3">Острые</option>
-                <option value="4">Закрытые</option>
-                <option value="5">Гриль</option>
+                {categoryList.map((name,index) => (
+                  <option value={index}>{name}</option>
+                ))}
               </Form.Select>
              
             </div>
@@ -175,7 +170,7 @@ const Update = ({ item }) => {
               options={typesList}
               value={types}
               onChange={setType}
-              aria-labelledby="Выбрать..."
+              placeholder="Select Cities"
             />
 
             {/* ------- */}
@@ -184,7 +179,6 @@ const Update = ({ item }) => {
               options={sizesList}
               value={sizes}
               onChange={setSize}
-              labelledBy="Выбрать..."
             />
 
             {/* ---------- */}
@@ -196,9 +190,9 @@ const Update = ({ item }) => {
           </Button>
           <Button
             variant="primary"
-            onClick={() => updateProduct(updatedProduct,category)}
+            onClick={() => updateProduct(updatedProduct)}
           >
-            Добавить
+            Изменить
           </Button>
         </Modal.Footer>
       </Modal>

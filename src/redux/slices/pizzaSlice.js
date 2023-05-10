@@ -5,7 +5,6 @@ const initialState = {
   pizza: [],
   like: [],
   status: 'loading',
-  render: ''
 };
 
 export const fetchPizzas = createAsyncThunk(
@@ -19,28 +18,8 @@ export const fetchPizzas = createAsyncThunk(
   }
 );
 
-export const postPizzas = createAsyncThunk(
-  "pizza/postPizzasStatus",
-  async (add) => {
-    axios.post('https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz',add)
-    
-  }
-);
-export const updatePizza = createAsyncThunk(
-  "pizza/updatePizzasStatus",
-  async (item) => {
-    axios.put(`https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz/${item.id}`,item);
-    
-  }
-);
 
-export const deletePizza = createAsyncThunk(
-  "pizza/deletePizzasStatus",
-  async (item) => {
-    axios.delete('https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz/'+ item,)
-    
-  }
-);
+
 
 export const pizzaSlice = createSlice({
   name: "pizza",
