@@ -19,8 +19,10 @@ const AdminTable = () => {
     setRender(false);
   },[render])
   
-  return (
-    <div className="admin__container">
+
+  function AdminTable(){
+    return(
+      <div className="admin__container">
       <Add setRender={setRender}/>
       <table className="admin__table table table-striped table-hover border">
         <thead>
@@ -69,6 +71,30 @@ const AdminTable = () => {
         </tbody>
       </table>
     </div>
-  );
+    )
+  }
+  return (
+      <>
+      {status === "loading" ? (
+            <div className="spinner-direction">
+            <div className="spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            </div>
+          ) : (
+            <AdminTable />
+          )}</>
+  )
 };
 export default AdminTable;
