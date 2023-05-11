@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategoryIndex } from '../redux/slices/categorySlice';
 import { Link } from 'react-router-dom';
 import { setSort } from '../redux/slices/filterSlice';
-
+import React from 'react'
 const sortList = [
     {name: "по цене (DESC)", type: "desc",nameType: 'price',status: "activex"},
     {name: "по цене (ASC)", type: "asc",nameType: 'price',status: "activex"},
@@ -31,52 +31,56 @@ const pizzaList = [
 
 
 function Burger() {
-    const {categories} = useSelector((state) => state.categorySlice);
+    const[open,setOpen] = React.useState(false);
     const dispatch = useDispatch();
     const inputRef = useRef();
     const onHandleChange = (event) => {
         const { value } = inputRef.current;
         dispatch(setFilter(value));
-    
+        
       };
     function onHandleClick(index) {
         console.log(index);
         const selectedObj = sortList[index];
         dispatch(setSort(selectedObj))
+        setOpen(!open);
     }
-
-  
+    function onHandleCategory(index) {
+        dispatch(setCategoryIndex(index));
+        setOpen(!open);
+    }
   return (
-    <>
+    
+    <div>
       {[ 'xxl'].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="burger">
+        <Navbar expanded={open}  bg="light" expand={expand} className="burger">
           <Container  fluid>
             <Navbar.Brand href="#">Меню</Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Toggle onClick={() => setOpen(!open)} aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
              
             >
-              <Offcanvas.Header closeButton>
+              <Offcanvas.Header >
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   Навигация
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Link className='linkBurger' to={"/"}>Главная страница</Link>
-                  <Link className='linkBurger' to={'/liked'}>Выбранные пиццы</Link>
-                  <Link className='linkBurger' to={'/order'}>Добавленные пиццы</Link>
-                  <Link className='linkBurger' to={'/admin'}>Админ панель</Link>
+                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={"/"}>Главная страница</Link>
+                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/liked'}>Выбранные пиццы</Link>
+                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/order'}>Добавленные пиццы</Link>
+                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/admin'}>Админ панель</Link>
                   <NavDropdown
                     title="Сортировка по"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                     className='linkBurger'
                   >
                     {sortList.map((sort,index) => (
-                       <> <NavDropdown.Item  onClick={() => onHandleClick(index)}>{sort.name}</NavDropdown.Item>
+                       <> <NavDropdown.Item  onClick={() => onHandleClick(index) }>{sort.name}</NavDropdown.Item>
                        <NavDropdown.Divider /></>
                     ))}
                 
@@ -88,7 +92,7 @@ function Burger() {
                     className='linkBurger'
                   >
                     {pizzaList.map((name,index) => (
-                       <div> <NavDropdown.Item onClick={() => dispatch(setCategoryIndex(index))}>{name}</NavDropdown.Item>
+                       <div> <NavDropdown.Item onClick={() => onHandleCategory(index)}>{name}</NavDropdown.Item>
                        <NavDropdown.Divider /></div>
                     ))}
                    
@@ -110,7 +114,7 @@ function Burger() {
           </Container>
         </Navbar>
       ))}
-    </>
+    </div>
   );
 }
 
