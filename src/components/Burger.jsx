@@ -69,6 +69,17 @@ function Burger() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
+              <Form className="d-flex mb-3">
+                  <Form.Control
+                   onChange={() => onHandleChange()}
+                   ref={inputRef}
+                    type="search"
+                    placeholder="Искать продукт.."
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button  onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
+                </Form>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Link onClick={() => setOpen(!open)} className='linkBurger' to={"/"}>Главная страница</Link>
                   <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/liked'}>Выбранные пиццы</Link>
@@ -98,7 +109,7 @@ function Burger() {
                    
                   </NavDropdown>
                 </Nav>
-                <Form className="d-flex">
+                {/* <Form className="d-flex">
                   <Form.Control
                    onChange={() => onHandleChange()}
                    ref={inputRef}
@@ -108,7 +119,7 @@ function Burger() {
                     aria-label="Search"
                   />
                   <Button  onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
-                </Form>
+                </Form> */}
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

@@ -6,6 +6,7 @@ import likes from '../../assets/icons/like.png'
 import nolikes from '../../assets/icons/liked.png'
 
 import { setLike } from "../../redux/slices/pizzaSlice";
+import NotFound from "../NotFound/NotFound";
 
 const LikedPizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   
@@ -44,53 +45,54 @@ const LikedPizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   };
 
   return (
-    <div className="blockpizza">
-      <div className="blockpizza__image">
-        <img className="pizzaimage" src={imageUrl} /> 
-        {like !== 1 ? <img onClick={() => likeEt(id)} className="like" src={likes}/> 
-        :<img onClick={() => likeEt(id)} className="nolike" src={nolikes}/> 
-        
-        }
-      </div>
-      <div className="blockpizza__title">{title}</div>
-      <div className="blockpizza__category">
-        <div className="blockpizza__one">
-          <ul>
-            {types.map((type, index) => (
-              <li
-                key={index}
-                onClick={() => setActiveType(index)}
-                className={activeType === index ? "active" : ""}
-              >
-                {type.label}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="blockpizza__two">
-          <ul>
-            {sizes.map((size, index) => (
-              <li
-                key={index}
-                className={activeSize === index ? "active" : ""}
-                onClick={() => setActiveSize(index)}
-              >
-                {size.label} см.
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
 
-      <div className="blockpizza__price__add">
-        <div className="blockpizza__price">от {price} ₽</div>
-        <div onClick={() => addNewPizza()} className="blockpizza__add">
-          <button>
-            + Добавить {addedCount > 0 && <span>{addedCount}</span>}
-          </button>
-        </div>
+    <div className="blockpizza">
+    <div className="blockpizza__image">
+      <img className="pizzaimage" src={imageUrl} /> 
+      {like !== 1 ? <img onClick={() => likeEt(id)} className="like" src={likes}/> 
+      :<img onClick={() => likeEt(id)} className="nolike" src={nolikes}/> 
+      
+      }
+    </div>
+    <div className="blockpizza__title">{title}</div>
+    <div className="blockpizza__category">
+      <div className="blockpizza__one">
+        <ul>
+          {types.map((type, index) => (
+            <li
+              key={index}
+              onClick={() => setActiveType(index)}
+              className={activeType === index ? "active" : ""}
+            >
+              {type.label}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="blockpizza__two">
+        <ul>
+          {sizes.map((size, index) => (
+            <li
+              key={index}
+              className={activeSize === index ? "active" : ""}
+              onClick={() => setActiveSize(index)}
+            >
+              {size.label} см.
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
+
+    <div className="blockpizza__price__add">
+      <div className="blockpizza__price">от {price} ₽</div>
+      <div onClick={() => addNewPizza()} className="blockpizza__add">
+        <button>
+          + Добавить {addedCount > 0 && <span>{addedCount}</span>}
+        </button>
+      </div>
+    </div>
+  </div>
   );
 };
 
