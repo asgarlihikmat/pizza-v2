@@ -49,14 +49,15 @@ function Burger() {
   return (
     <>
       {[ 'xxl'].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-3 burger">
-          <Container fluid>
+        <Navbar key={expand} bg="light" expand={expand} className="burger">
+          <Container  fluid>
             <Navbar.Brand href="#">Меню</Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
+             
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
