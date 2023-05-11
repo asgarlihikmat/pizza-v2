@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
   allpizza: [],
   status: 'loading',
+  
 };
 
 export const fetchAdminPizzas = createAsyncThunk(
@@ -45,7 +46,7 @@ export const adminSlice = createSlice({
   name: "admin",
   initialState,
   reducers: {
- 
+
   
   },
   extraReducers: {
@@ -56,6 +57,7 @@ export const adminSlice = createSlice({
     [fetchAdminPizzas.fulfilled]: (state, action) => {
       state.allpizza = action.payload;
       state.status = 'success'
+      
     },
     [fetchAdminPizzas.rejected]: (state) => {
       state.allpizza = [];

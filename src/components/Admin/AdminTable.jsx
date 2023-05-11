@@ -5,25 +5,23 @@ import React from 'react'
 import { fetchAdminPizzas } from "../../redux/slices/adminSlice";
 
 const AdminTable = () => {
-  const dispatch = useDispatch();
-  const[render,setRender] = React.useState(false);
-  const { allpizza,status } = useSelector((state) => state.adminSlice);
-  console.log(status);
 
-  const getsPizzas = async () => {
-    dispatch(fetchAdminPizzas());
-  };
-  
+  const dispatch = useDispatch();
+  const { allpizza,status } = useSelector((state) => state.adminSlice);
+  const[render,setRender] = React.useState(false);
+
+
   React.useEffect(()=>{
-    setRender(false);
-    getsPizzas();
+    dispatch(fetchAdminPizzas());
+    setRender(false)
   },[render])
   
 
   function AdminTable(){
     return(
       <div className="admin__container">
-      <Add setRender={setRender}/>
+        
+      <Add setRender={setRender} render={render}/>
       <table className="admin__table table table-striped table-hover border">
         <thead>
           <tr>
@@ -61,7 +59,7 @@ const AdminTable = () => {
               </td>
               <td>
                
-                <Update setRender={setRender} item={item}/>
+                <Update render={setRender} setRender={setRender} item={item}/>
                
               </td>
             </tr>
@@ -75,6 +73,7 @@ const AdminTable = () => {
   }
   return (
       <>
+     
       {status === "loading" ? (
             <div className="spinner-direction">
             <div className="spinner">
@@ -94,7 +93,8 @@ const AdminTable = () => {
             </div>
           ) : (
             <AdminTable />
-          )}</>
+          )}
+          </>
   )
 };
 export default AdminTable;

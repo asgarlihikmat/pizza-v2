@@ -12,9 +12,10 @@ const Search = () => {
   const onHandleChange = (event) => {
     const { value } = inputRef.current;
     dispatch(setFilter(value));
+
   };
 
-
+  console.log('search');
   return (
     <div className="pizza__body__second">
       <div className="pizza__search">

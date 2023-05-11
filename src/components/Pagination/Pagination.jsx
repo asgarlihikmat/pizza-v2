@@ -35,8 +35,8 @@ function Pagination() {
 
       <div className="limit">
 
-        <select onChange={handleChange} class="form-select form-select-sm" aria-label=".form-select-sm example">
-              <option value="15" selected>Pagination</option>
+        <select onChange={handleChange} className="form-select form-select-sm" aria-label=".form-select-sm example">
+              <option value="15" defaultValue>Pagination</option>
               <option value="10">10</option>
               <option value="5">5</option>
               <option value="3">3</option>

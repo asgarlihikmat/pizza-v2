@@ -16,7 +16,7 @@ const sizesList = [
   {label: '30 см',value: 30},
   {label: '40 см',value: 40}
 ]
-const Add = ({setRender}) => {
+const Add = ({setRender,render}) => {
   const[open,setOpen] = React.useState(false);
   const navigate = useNavigate();
   const[sizes,setSize] = React.useState([]);
@@ -62,6 +62,7 @@ function addPizza(sizes,types) {
       setRender(true);
       setOpen(!open);
       alertify.success('Вы успешно создали новую пиццу!')
+      setRender(render => !render)
     }
     
   }

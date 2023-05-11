@@ -7,6 +7,7 @@ import {setPage} from '../../redux/slices/pizzaSlice'
 import { Form, ListGroup } from "react-bootstrap";
 
 const Category = () => {
+  console.log('Category render');
   const {sort} = useSelector(state => state.filterSlice)
 
   const sortList = [
@@ -63,7 +64,7 @@ const Category = () => {
 
         {sort.name ?  <option>{sort.name}</option> :  <option>не выбран</option>}
         {sortList.map((sort,index) => (
-        <option value={index}>{sort.name}</option>
+        <option key={index} value={index}>{sort.name}</option>
           ))}
         </Form.Select> 
         </div>

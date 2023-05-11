@@ -12,12 +12,19 @@ const initialState = {
 export const fetchPizzas = createAsyncThunk(
   "pizza/fetchPizzasStatus",
   async (params) => {
-    const { category, filters, sortPizza, pagesAndLimit } = params;
+    const { category,filters:filter, page,limit,sort } = params;
+
+    const categoryId = category > 0 ? `category=${category}` : "";
+    const filters = filter ? `&search=${filter}` : "";
+    const pagesAndLimit = limit === 15 ? '' : `&page=${page}&limit=${limit}`;
+    const sortPizza = sort.name ? `&sortby=${sort.nameType}&order=${sort.type}` : "";
+
     const { data } = await axios.get(
-      `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz?${category}${filters}${sortPizza}${pagesAndLimit}`
+      `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz?${categoryId}${filters}${sortPizza}${pagesAndLimit}`
     );
     return data; 
-  }
+    
+  } 
 );
 
 
@@ -59,18 +66,18 @@ export const pizzaSlice = createSlice({
     }
   },
   extraReducers: {
-    [fetchPizzas.pending]: (state) => {
-      state.pizza = [];
-      state.status = 'loading'
-    },
+    // [fetchPizzas.pending]: (state) => {
+    //   state.pizza = [];
+    //   state.status = 'loading'
+    // },
     [fetchPizzas.fulfilled]: (state, action) => {
       state.pizza = action.payload;
-      state.status = 'success'
+       state.status = 'success'
     },
-    [fetchPizzas.rejected]: (state) => {
-      state.pizza = [];
-      state.status = 'error'
-    },
+    // [fetchPizzas.rejected]: (state) => {
+    //   state.pizza = [];
+    //   state.status = 'error'
+    // },
   },
 });
 

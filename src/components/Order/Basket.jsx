@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import like from "../../assets/icons/liked.png";
 
 const Basket = () => {
+
   const navigate = useNavigate();
   const { addedPizza } = useSelector((state) => state.addSlice);
   const likeStatus = useSelector((state) => state.pizzaSlice.like);

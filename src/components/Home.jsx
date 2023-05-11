@@ -21,30 +21,23 @@ function Home() {
   const navigate = useNavigate();
   
   const dispatch = useDispatch();
-  const categoryId = useSelector((state) => state.categorySlice.categories);
+  const category = useSelector((state) => state.categorySlice.categories);
   const { page,limit,status } = useSelector((state) => state.pizzaSlice);
   const { filter, sort } = useSelector((state) => state.filterSlice);
   const { pathname } = useLocation();
   
-  const getPizzas = async () => {
-    const category = categoryId > 0 ? `category=${categoryId}` : "";
-    const filters = filter ? `&search=${filter}` : "";
-    const pagesAndLimit = limit === 15 ? '' : `&page=${page}&limit=${limit}`;
-    const sortPizza = sort.name
-      ? `&sortby=${sort.nameType}&order=${sort.type}`
-      : "";
-
-    dispatch(fetchPizzas({ category, filters, sortPizza, pagesAndLimit }));
-  };
 
   React.useEffect(() => {
-    getPizzas();
-  }, [categoryId, filter, page,limit, sort]);
+    dispatch(fetchPizzas({ category,filters:filter, page,limit,sort }));
+   
+  }, [category, filter, page,limit, sort]);
   
   function homePage() {
       dispatch(setCategoryIndex(0))
       navigate('/')
+
   }
+  
   return (
     <div className="wrapper">
       <div className="container">
@@ -56,7 +49,7 @@ function Home() {
                   <img src={logo} alt="logo" />
                 </Link>
               </div>
-                <div onClick={() => homePage()} className="pizza__body">
+                <div onClick={homePage} className="pizza__body">
                   <div className="pizza__title">CHICAGO PIZZA</div>
                   <div className="pizza__text">
                     самая вкусная пицца во вселенной

@@ -8,6 +8,8 @@ import Liked from "./components/LikedPizzas/Liked";
 import PizzaDetail from "./components/Pizza/PizzaDetail";
 import Home from "./components/Home";
 import AdminTable from "./components/Admin/AdminTable";
+import Test from "./components/Test";
+import Test2 from "./components/Test2";
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
         <Route path="/orderdetail" element={<RecentOrderDetail />} />
         <Route path="/liked" element={<Liked />} />
         <Route path="/admin" element={<AdminTable />} />
+        <Route path="/test" element={<Test />} />
         </Route>
       </Routes>
     </div>

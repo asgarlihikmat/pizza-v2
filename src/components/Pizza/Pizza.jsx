@@ -6,6 +6,7 @@ import Pagination from '../Pagination/Pagination';
 
 const Pizza = () =>{
     const pizzaList = useSelector(state => state.pizzaSlice.pizza);
+
     return(
         <div>
             <Category />

@@ -1,9 +1,10 @@
 import React from "react";
 import alertify from "alertifyjs";
 import { Button, Form, InputGroup, Modal } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deletePizza, updatePizza } from "../../redux/slices/adminSlice";
 import { MultiSelect } from "react-multi-select-component";
+import { fetchAdminPizzas } from "../../redux/slices/adminSlice";
 
 const typesList = [
   { label: "тонкое", value: 1 },
@@ -23,33 +24,35 @@ const categoryList = [
   "Острые",
   "Закрытые",
 ];
-const Update = ({ item,setRender }) => {
+const Update = ({ item,setRender,render }) => {
   const dispatch = useDispatch();
+  const {status} = useSelector(state => state.adminSlice)
   const [open, setOpen] = React.useState(false);
   const [updatedProduct, setUpdatedProduct] = React.useState(item);
   const [sizes, setSize] = React.useState(item.sizes);
   const [types, setType] = React.useState(item.types);
   
-  
+
   function deleteProduct(item) {
     const sekret = prompt(
       "Only Hikmet can delete *) or add a secret word to delete"
     );
     if (sekret === "javascript") {
       dispatch(deletePizza(item.id));
-      setRender(true);
       alertify.success("Вы удалили пиццу!!");
+      setRender(render => !render)
       
     } else {
       alertify.error("Не верно родноййй!!");
     }
   }
-
+ 
   function handleChange(event) {
     const { name, value } = event.target;
     setUpdatedProduct({ ...updatedProduct, [name]: value });
     
   }
+  
   function updateProduct(updatedProduct) {
     const { imageUrl, title, price, id,category } = updatedProduct;
     
@@ -76,14 +79,13 @@ const Update = ({ item,setRender }) => {
     } else if (sizes[0] === undefined) {
       alertify.error("Заполноте пажалуйста размер пиццы");
     } else {
-      alertify.success('Вы успешно изменили пиццу!')
-      dispatch(updatePizza(allUpdatedroduct));
-      setOpen(!open);
-      setRender(true);
-    }  
 
-   
-    
+      dispatch(updatePizza(allUpdatedroduct));
+      alertify.success('Вы успешно изменили пиццу!')
+      setOpen(!open);
+    }  
+    setRender(render => !render);
+
   }
   
   return (
@@ -157,7 +159,7 @@ const Update = ({ item,setRender }) => {
               <Form.Select name='category' onChange={handleChange} aria-label="Default select example">
                 <option>Выбран - {categoryList[item.category]}</option>
                 {categoryList.map((name,index) => (
-                  <option value={index}>{name}</option>
+                  <option key={index} value={index}>{name}</option>
                 ))}
               </Form.Select>
              
