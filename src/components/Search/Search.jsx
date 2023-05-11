@@ -15,7 +15,6 @@ const Search = () => {
 
   };
 
-  console.log('search');
   return (
     <div className="pizza__body__second">
       <div className="pizza__search">

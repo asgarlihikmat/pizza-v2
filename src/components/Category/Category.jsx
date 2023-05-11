@@ -5,9 +5,10 @@ import { setCategoryIndex } from "../../redux/slices/categorySlice";
 import { setSort } from "../../redux/slices/filterSlice";
 import {setPage} from '../../redux/slices/pizzaSlice'
 import { Form, ListGroup } from "react-bootstrap";
+import { useWhyDidYouUpdate } from "ahooks";
 
 const Category = () => {
-  console.log('Category render');
+  
   const {sort} = useSelector(state => state.filterSlice)
 
   const sortList = [
@@ -34,8 +35,10 @@ const Category = () => {
   function changeCategory(index) {
     dispatch(setCategoryIndex(index));
     dispatch(setPage(1));
-     
+    
   }
+  
+
   function onHandleChange(event) {
       const selectedObj = sortList[event.target.value];
       dispatch(setSort(selectedObj))

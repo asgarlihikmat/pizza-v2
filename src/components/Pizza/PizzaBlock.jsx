@@ -7,6 +7,7 @@ import nolikes from '../../assets/icons/liked.png'
 
 import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
+import { useWhyDidYouUpdate } from "ahooks";
 
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   const navigation = useNavigate();
@@ -41,7 +42,6 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       sizes,
       date: {date: date.getDate(),month: date.getMonth(),year: date.getFullYear()}
     };
-    console.log(item);
     if (item.types[0] === undefined) {
       alertify.error("Вы не выбрали тип");
     } else if (item.sizes[0] === undefined) {
@@ -50,7 +50,10 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       alertify.success("Вы добавили " + item.title);
       dispatch(addPizza(item));
     }
+    
   };
+  
+  
   function pizzaDetail(id) {
     navigation(`pizza/${id}`)
   }

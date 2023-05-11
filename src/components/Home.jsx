@@ -15,6 +15,7 @@ import Basket from "./Order/Basket";
 import PizzaDetail from "./Pizza/PizzaDetail";
 import Pagination from "./Pagination/Pagination";
 import { setCategoryIndex } from "../redux/slices/categorySlice";
+import Category from "./Category/Category";
 
 function Home() {
   const {id} = useParams();
@@ -30,8 +31,10 @@ function Home() {
   React.useEffect(() => {
     dispatch(fetchPizzas({ category,filters:filter, page,limit,sort }));
    
+  
   }, [category, filter, page,limit, sort]);
   
+
   function homePage() {
       dispatch(setCategoryIndex(0))
       navigate('/')
@@ -65,8 +68,10 @@ function Home() {
             ) : (
               <Search />
             )}
+            
             <Basket />
           </div>
+          <Category />
           {status === "loading" ? (
             <div className="spinner-direction">
             <div className="spinner">

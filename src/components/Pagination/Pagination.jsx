@@ -9,7 +9,6 @@ import right from "../../assets/icons/right.png";
 function Pagination() {
     const dispatch = useDispatch();
     const {page,limit,pizza} = useSelector(state => state.pizzaSlice)
-  console.log(pizza.length);
 
     const pageCount = Math.ceil(13 / limit);
 
