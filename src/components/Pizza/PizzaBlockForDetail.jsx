@@ -51,6 +51,7 @@ const PizzaBlockForDetail = ({ id, title, imageUrl, sizes, types, price,like }) 
     <div className="blockpizza__detail">
       
       <div className="blockpizza__title">{title}</div>
+      <div className="pizzablock__bodyy">
       <div className="blockpizza__category">
         <div className="blockpizza__one">
           <ul>
@@ -88,6 +89,8 @@ const PizzaBlockForDetail = ({ id, title, imageUrl, sizes, types, price,like }) 
           </button>
         </div>
       </div>
+      </div>
+      
     </div>
   );
 };
