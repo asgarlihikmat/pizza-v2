@@ -54,7 +54,7 @@ function Home() {
                 </Link>
               </div>
                 <div onClick={homePage} className="pizza__body">
-                  <div className="pizza__title">CHICAGO PIZZA</div>
+                  <div className="pizza__title"><a className="pizza__title" href="https://pizza-chi-three.vercel.app/">CHICAGO PIZZA</a></div>
                   <div className="pizza__text">
                     самая вкусная пицца во вселенной
                    

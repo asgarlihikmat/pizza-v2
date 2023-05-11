@@ -107,7 +107,7 @@ function Burger() {
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button variant="outline-success">Поиск</Button>
+                  <Button  onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
                 </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
