@@ -5,7 +5,6 @@ import { setCategoryIndex } from "../../redux/slices/categorySlice";
 import { setSort } from "../../redux/slices/filterSlice";
 import {setPage} from '../../redux/slices/pizzaSlice'
 import { Form, ListGroup } from "react-bootstrap";
-import { useWhyDidYouUpdate } from "ahooks";
 
 const Category = () => {
   
@@ -28,7 +27,7 @@ const Category = () => {
     "Закрытые",
   ];
 
-
+ 
   const dispatch = useDispatch();
   const categoryIndex = useSelector((state) => state.categorySlice.categories);
 

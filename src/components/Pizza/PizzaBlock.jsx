@@ -7,7 +7,6 @@ import nolikes from '../../assets/icons/liked.png'
 
 import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
-import { useWhyDidYouUpdate } from "ahooks";
 
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   const navigation = useNavigate();

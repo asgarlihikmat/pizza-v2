@@ -16,6 +16,7 @@ import PizzaDetail from "./Pizza/PizzaDetail";
 import Pagination from "./Pagination/Pagination";
 import { setCategoryIndex } from "../redux/slices/categorySlice";
 import Category from "./Category/Category";
+import Burger from "./Burger";
 
 function Home() {
   const {id} = useParams();
@@ -56,9 +57,12 @@ function Home() {
                   <div className="pizza__title">CHICAGO PIZZA</div>
                   <div className="pizza__text">
                     самая вкусная пицца во вселенной
+                   
                   </div>
                 </div>
+               
             </div>
+            
             {pathname === `/pizza/${id}` ||
             pathname === "/liked" ||
             pathname === "/admin" ||
@@ -70,7 +74,9 @@ function Home() {
             )}
             
             <Basket />
+            
           </div>
+          <Burger />
           <Category />
           {status === "loading" ? (
             <div className="spinner-direction">

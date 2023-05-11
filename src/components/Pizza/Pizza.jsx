@@ -3,7 +3,6 @@ import Category from '../Category/Category';
 import { useSelector } from 'react-redux';
 import PizzaBlock from './PizzaBlock';
 import Pagination from '../Pagination/Pagination';
-import { useWhyDidYouUpdate } from 'ahooks';
 
 const Pizza = () =>{
     const pizzaList = useSelector(state => state.pizzaSlice.pizza);

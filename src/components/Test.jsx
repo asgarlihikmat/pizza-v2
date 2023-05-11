@@ -1,4 +1,3 @@
-import { useWhyDidYouUpdate } from 'ahooks';
 import React, { useCallback } from 'react'
 import Test2 from './Test2';
 
