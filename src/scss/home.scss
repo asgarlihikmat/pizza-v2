@@ -292,14 +292,13 @@ body::-webkit-scrollbar {
 .content__row {
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
   flex-wrap: wrap;
 }
 .blockpizza:hover {
   cursor: pointer;
   border: 1px solid #f3f3f3;
   border-radius: 30px;
-  padding: 5px 0px 10px 7px;
+  //padding: 5px 0px 10px 7px;
 }
 .blockpizza__detail {
   border: 1px solid #d3d3d3;
@@ -338,58 +337,60 @@ body::-webkit-scrollbar {
     font-weight: 900;
     font-size: 18px;
     line-height: 24px;
-    margin: 0px 0px 30px -10px;
+    margin: 20px 0px;
     text-align: center;
   }
   &__category {
-    max-width: 280px;
+    width: 290px;
+    
     background: #f3f3f3;
     border-radius: 10px;
     // padding: 0px;
-    margin: 0px 6px 30px 0px;
+    //margin: 0px 0px 30px 0px;
   }
+ 
 
   &__one ul {
     display: flex;
-    gap: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0px auto;
+    
+    
   }
+
   .active {
     background: #ffffff;
 
     color: black;
-    flex: 1 1 auto;
-    margin: 5px 5px;
-    text-align: center;
+    //flex: 1 1 auto;
+    //margin: 5px 5px;
+    //text-align: center;
   }
   &__one ul li {
+    //border: 1px solid black;
+    flex: 1 1 auto;
     cursor: pointer;
-    // background: #ffffff;
-
-    // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
     border-radius: 5px;
-    padding: 10px 22px;
-    margin: 0px 0px 5px 0px;
-
+    padding: 10px 30px 10px 30px;
+    margin: 5px 10px 0px -20px;
+    
     font-size: 14px;
-    line-height: 17px;
     color: black;
-    // filter: blur(1px);
+    
   }
+
   &__two ul {
     display: flex;
+    margin: 0px 0px 0px 0px;
     justify-content: space-around;
+    margin-left: -22px;
   }
 
   &__two ul li {
     cursor: pointer;
     border-radius: 5px;
-    padding: 10px 19px;
-
+    padding: 10px 25px 10px 20px;
+    margin: 5px 0px 5px 0px;
     font-size: 14px;
-    line-height: 17px;
   }
   &__price__add {
     margin-top: 15px;
@@ -557,11 +558,7 @@ body::-webkit-scrollbar {
     width: 30px;
     margin: -5px 0px 0px 0px;
   }
-  &__one {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+  
   &__body {
     display: flex;
     justify-content: space-between;

@@ -14,7 +14,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
   const dispatch = useDispatch();
-
+ 
   function likeEt (id){
       dispatch(setLike(id));
       alertify.error('Вы удалили пиццу из выбранные!');
@@ -67,6 +67,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       <div className="blockpizza__title">{title}</div>
       <div className="blockpizza__category">
         <div className="blockpizza__one">
+          
           <ul>
             {types.map((type, index) => (
               <li
@@ -74,7 +75,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
                 onClick={() => setActiveType(index)}
                 className={activeType === index ? "active" : ""}
               >
-                {type.label}
+                <span>{type.label}</span>
               </li>
             ))}
           </ul>

@@ -38,9 +38,9 @@ const Update = ({ item,setRender,render }) => {
       "Only Hikmet can delete *) or add a secret word to delete"
     );
     if (sekret === "javascript") {
+      setRender(render => !render)
       dispatch(deletePizza(item.id));
       alertify.success("Вы удалили пиццу!!");
-      setRender(render => !render)
       
     } else {
       alertify.error("Не верно родноййй!!");
