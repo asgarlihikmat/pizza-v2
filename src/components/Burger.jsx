@@ -53,32 +53,34 @@ function Burger() {
     
     <div>
       {[ 'xxl'].map((expand) => (
-        <Navbar expanded={open}  bg="light" expand={expand} className="burger">
-          <Container  fluid>
-            <Navbar.Brand href="#">Меню</Navbar.Brand>
-            <Navbar.Toggle onClick={() => setOpen(!open)} aria-controls={`offcanvasNavbar-expand-${expand}`} />
+        <Navbar  expanded={open}  bg="light" expand={expand} className="burger">
+          <Container fluid>
+            <Navbar.Brand onClick={() => setOpen(!open)} href="#">Меню</Navbar.Brand>
+            <Navbar.Toggle onClick={() => setOpen(!open)}  aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
+           
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
              
             >
-              <Offcanvas.Header >
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+              <Offcanvas.Header onClick={() => setOpen(!open)}  >
+                <Offcanvas.Title onClick={() => setOpen(!open)} id={`offcanvasNavbarLabel-expand-${expand}`}>
                   Навигация
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-              <Form className="d-flex mb-3">
+              <Form  className="d-flex mb-3">
                   <Form.Control
                    onChange={() => onHandleChange()}
                    ref={inputRef}
+                   
                     type="search"
                     placeholder="Искать продукт.."
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button  onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
+                  <Button onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
                 </Form>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Link onClick={() => setOpen(!open)} className='linkBurger' to={"/"}>Главная страница</Link>
@@ -91,7 +93,7 @@ function Burger() {
                     className='linkBurger'
                   >
                     {sortList.map((sort,index) => (
-                       <> <NavDropdown.Item  onClick={() => onHandleClick(index) }>{sort.name}</NavDropdown.Item>
+                       <> <NavDropdown.Item onClick={() => setOpen(!open)}>{sort.name}</NavDropdown.Item>
                        <NavDropdown.Divider /></>
                     ))}
                 
