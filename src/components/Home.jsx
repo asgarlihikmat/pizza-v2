@@ -50,7 +50,7 @@ const Home = () => {
               </div>
               {/* <a className="pizza__title" href="https://pizza-chi-three.vercel.app/">CHICAGO PIZZA</a>  */}
                 <div className="pizza__body">
-                  <div className="pizza__title"><Link className="pizza__title" to={'/'}>CHICAGO PIZZA</Link></div>
+                  <div className="pizza__title"><a className="pizza__title" href="https://pizza-chi-three.vercel.app/">CHICAGO PIZZA</a></div>
                   <div className="pizza__text">
                     самая вкусная пицца во вселенной
                   </div>
