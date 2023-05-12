@@ -86,7 +86,7 @@ const PizzaBlockForDetail = ({
           <button>
             <span>+ Добавить</span>
               {groupAdd.map((obj,index) => (
-                <div>{obj.id === id ? <span className="spantu">{obj.countGroup}</span>: ''}</div>
+                <div key={index}>{obj.id === id ? <span className="spantu">{obj.countGroup}</span>: ''}</div>
               ))}
           </button>
           </div>

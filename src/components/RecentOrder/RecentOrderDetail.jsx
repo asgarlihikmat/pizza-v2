@@ -14,11 +14,11 @@ const RecentOrderDetail = () => {
           </div>
             <div className="recentorderdetail__block">{recentOrderProduct.map((prod,index) => (
                 
-                <><span>Заказ: #{index+1}</span>
+                <div key={index}><span>Заказ: #{index+1}</span>
                 <div className="recentorderdetail__date">Доставлен  {prod[0].date.date} {month[prod[0].date.month]}  {prod[0].date.year} г. </div>
                 <div className="diverse">{prod.map((item,index) => (
                 
-                    <div  className="recentorderdetail__footer"> 
+                    <div key={index} className="recentorderdetail__footer"> 
                     
                     <img src={item.imageUrl} />
                     <div className="recentorderdetail__body">
@@ -31,7 +31,7 @@ const RecentOrderDetail = () => {
                  </div>
                  
                 ))}</div>
-                </>
+                </div>
             ))}
             </div>
            
