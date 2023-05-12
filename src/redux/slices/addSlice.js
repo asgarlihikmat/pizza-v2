@@ -50,8 +50,8 @@ export const addSlice = createSlice({
       const newState = state.addedPizza.find((obj) => {
         if (
           obj.id === action.payload.id &&
-          obj.type === action.payload.type &&
-          obj.size === action.payload.size
+          obj.types === action.payload.types &&
+          obj.sizes === action.payload.sizes
         ) {
           return obj;
         }
@@ -64,8 +64,8 @@ export const addSlice = createSlice({
       const newState = state.addedPizza.find((obj) => {
         if (
           obj.id === action.payload.id &&
-          obj.type === action.payload.type &&
-          obj.size === action.payload.size
+          obj.types === action.payload.types &&
+          obj.sizes === action.payload.sizes
         ) {
           return obj;
         }
