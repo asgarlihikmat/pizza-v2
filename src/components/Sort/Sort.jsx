@@ -1,14 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import strelka from "../../assets/icons/Vector.svg";
 import React, { useRef } from "react";
-import { setCategoryIndex } from "../../redux/slices/categorySlice";
 import { setSort } from "../../redux/slices/filterSlice";
-import { setPage } from "../../redux/slices/pizzaSlice";
-import { Form, ListGroup } from "react-bootstrap";
-import { useWhyDidYouUpdate } from "ahooks";
+import { Form } from "react-bootstrap";
 
-const Category = React.memo(() => {
-  const categoryIndex = useSelector((state) => state.categorySlice.categories);
+const Sort = React.memo(({sort}) => {
 
   const sortList = [
     {
@@ -48,44 +44,35 @@ const Category = React.memo(() => {
       status: "activex",
     },
   ];
-  const pizzaList = [
-    "Все ",
-    "Мясные",
-    "Вегетарианская",
-    "Гриль",
-    "Острые",
-    "Закрытые",
-  ];
 
   const dispatch = useDispatch();
- 
- 
-  const changeCategory = React.useCallback((index) => {
-    dispatch(setCategoryIndex(index));
-    dispatch(setPage(1));
-  },[])
 
   const onHandleChange = React.useCallback((event) => {
     const selectedObj = sortList[event.target.value];
     dispatch(setSort(selectedObj));
-  })
+  },[])
 
   return (
-      <div className="menu__list">
-        <ul>
-          {pizzaList.map((pizzaName, index) => (
-            <li
-              onClick={() => changeCategory(index)}
-              className={index === categoryIndex ? "active" : ""}
-              key={index}
-            >
-              {pizzaName}
-            </li>
-          ))}
-        </ul>
+      
+      <div className="menu__filter">
+        <img className="menu__image" src={strelka} />
+        <span className="menu__sort">Сортировка по:</span>
+        <div className="menu__popular">
+          <Form.Select onChange={onHandleChange}>
+            {sort.name ? (
+              <option>{sort.name}</option>
+            ) : (
+              <option>не выбран</option>
+            )}
+            {sortList.map((sort, index) => (
+              <option key={index} value={index}>
+                {sort.name}
+              </option>
+            ))}
+          </Form.Select>
+        </div>
       </div>
-
   );
 })
 
-export default Category;
+export default Sort;

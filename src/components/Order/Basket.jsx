@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from "react-redux";
 import icon from "../../assets/icons/Vector.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import like from "../../assets/icons/liked.png";
+import React from 'react'
 
-const Basket = () => {
+const Basket = React.memo(() => {
 
   const navigate = useNavigate();
   const { addedPizza } = useSelector((state) => state.addSlice);
@@ -31,15 +32,9 @@ const Basket = () => {
           ""
         )}
       </div>}
-      {/* <div className="pizza__like">
-        {likeStatus.length !== 0 ? (
-          <img onClick={() => navigate("/liked")} src={like} />
-        ) : (
-          ""
-        )}
-      </div> */}
+     
     </div>
   );
-};
+})
 
 export default Basket;

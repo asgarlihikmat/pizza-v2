@@ -17,47 +17,42 @@ import Pagination from "./Pagination/Pagination";
 import { setCategoryIndex } from "../redux/slices/categorySlice";
 import Category from "./Category/Category";
 import Burger from "./Burger";
+import Sort from "./Sort/Sort";
 
-function Home() {
+const Home = () => {
   const {id} = useParams();
   const navigate = useNavigate();
   
   const dispatch = useDispatch();
   const category = useSelector((state) => state.categorySlice.categories);
   const { page,limit,status } = useSelector((state) => state.pizzaSlice);
-  const { filter, sort } = useSelector((state) => state.filterSlice);
+  const { sort } = useSelector((state) => state.filterSlice);
+  const { search } = useSelector((state) => state.searchSlice);
   const { pathname } = useLocation();
-  
+   
 
   React.useEffect(() => {
-    dispatch(fetchPizzas({ category,filters:filter, page,limit,sort }));
-   
-  
-  }, [category, filter, page,limit, sort]);
+    dispatch(fetchPizzas({ category,search, page,limit,sort }));
+  }, [category, search, page,limit, sort]);
   
 
-  function homePage() {
-      dispatch(setCategoryIndex(0))
-      navigate('/')
 
-  }
   
   return (
     <div className="wrapper">
       <div className="container">
         <div className="header">
           <div className="pizza">
-            <div className="pizza__body__one">
+          <div className="pizza__body__one">
               <div className="pizza__image">
-                <Link to={"/"}>
-                  <img src={logo} alt="logo" />
-                </Link>
+              <img src={logo} alt="logo" />
+               
               </div>
-                <div onClick={homePage} className="pizza__body">
-                  <div className="pizza__title"><a className="pizza__title" href="https://pizza-chi-three.vercel.app/">CHICAGO PIZZA</a></div>
+              {/* <a className="pizza__title" href="https://pizza-chi-three.vercel.app/">CHICAGO PIZZA</a>  */}
+                <div className="pizza__body">
+                  <div className="pizza__title"><Link className="pizza__title" to={'/'}>CHICAGO PIZZA</Link></div>
                   <div className="pizza__text">
                     самая вкусная пицца во вселенной
-                   
                   </div>
                 </div>
                
@@ -77,7 +72,12 @@ function Home() {
             
           </div>
           <Burger />
-          <Category />
+         <div className="menu"> 
+         <Category />
+          <Sort sort={sort}/>
+          </div>
+
+          
           {status === "loading" ? (
             <div className="spinner-direction">
             <div className="spinner">

@@ -12,15 +12,15 @@ const initialState = {
 export const fetchPizzas = createAsyncThunk(
   "pizza/fetchPizzasStatus",
   async (params) => {
-    const { category,filters:filter, page,limit,sort } = params;
+    const { category,search, page,limit,sort } = params;
 
     const categoryId = category > 0 ? `category=${category}` : "";
-    const filters = filter ? `&search=${filter}` : "";
+    const searchValue = search ? `&search=${search}` : "";
     const pagesAndLimit = limit === 15 ? '' : `&page=${page}&limit=${limit}`;
     const sortPizza = sort.name ? `&sortby=${sort.nameType}&order=${sort.type}` : "";
 
     const { data } = await axios.get(
-      `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz?${categoryId}${filters}${sortPizza}${pagesAndLimit}`
+      `https://644e03da4e86e9a4d8ef5d12.mockapi.io/pizz?${categoryId}${searchValue}${sortPizza}${pagesAndLimit}`
     );
     return data; 
     

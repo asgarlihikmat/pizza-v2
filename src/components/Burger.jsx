@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { setFilter } from "../redux/slices/filterSlice";
+import { setSearch } from "../redux/slices/searchSlice";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryIndex } from '../redux/slices/categorySlice';
@@ -30,105 +30,105 @@ const pizzaList = [
   ];
 
 
-function Burger() {
-    const[open,setOpen] = React.useState(false);
-    const dispatch = useDispatch();
-    const inputRef = useRef();
-    const onHandleChange = (event) => {
-        const { value } = inputRef.current;
-        dispatch(setFilter(value));
-        
-      };
-    function onHandleClick(index) {
-        console.log(index);
-        const selectedObj = sortList[index];
-        dispatch(setSort(selectedObj))
-        setOpen(!open);
-    }
-    function onHandleCategory(index) {
-        dispatch(setCategoryIndex(index));
-        setOpen(!open);
-    }
-  return (
-    
-    <div>
-      {[ 'xxl'].map((expand) => (
-        <Navbar  expanded={open}  bg="light" expand={expand} className="burger">
-          <Container fluid>
-            <Navbar.Brand onClick={() => setOpen(!open)} href="#">Меню</Navbar.Brand>
-            <Navbar.Toggle onClick={() => setOpen(!open)}  aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Offcanvas
+const Burger = React.memo(() => {
+  const[open,setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+  const inputRef = useRef();
+  const onHandleChange = (event) => {
+      const { value } = inputRef.current;
+      dispatch(setSearch(value));
+      
+    };
+  function onHandleClick(index) {
+      console.log(index);
+      const selectedObj = sortList[index];
+      dispatch(setSort(selectedObj))
+      setOpen(!open);
+  }
+  function onHandleCategory(index) {
+      dispatch(setCategoryIndex(index));
+      setOpen(!open);
+  }
+return (
+  
+  <div>
+    {[ 'xxl'].map((expand) => (
+      <Navbar  expanded={open}  bg="light" expand={expand} className="burger">
+        <Container fluid>
+          <Navbar.Brand onClick={() => setOpen(!open)} href="#">Меню</Navbar.Brand>
+          <Navbar.Toggle onClick={() => setOpen(!open)}  aria-controls={`offcanvasNavbar-expand-${expand}`} />
+          <Navbar.Offcanvas
+         
+            id={`offcanvasNavbar-expand-${expand}`}
+            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+            placement="end"
            
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-             
-            >
-              <Offcanvas.Header onClick={() => setOpen(!open)}  >
-                <Offcanvas.Title onClick={() => setOpen(!open)} id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Навигация
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-              <Form  className="d-flex mb-3">
-                  <Form.Control
-                   onChange={() => onHandleChange()}
-                   ref={inputRef}
-                   
-                    type="search"
-                    placeholder="Искать продукт.."
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
-                </Form>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={"/"}>Главная страница</Link>
-                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/liked'}>Выбранные пиццы</Link>
-                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/order'}>Добавленные пиццы</Link>
-                  <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/admin'}>Админ панель</Link>
-                  <NavDropdown
-                    title="Сортировка по"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                    className='linkBurger'
-                  >
-                    {sortList.map((sort,index) => (
-                       <> <NavDropdown.Item onClick={() => setOpen(!open)}>{sort.name}</NavDropdown.Item>
-                       <NavDropdown.Divider /></>
-                    ))}
-                
-                    
-                  </NavDropdown>
-                  <NavDropdown
-                    title="Категории "
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                    className='linkBurger'
-                  >
-                    {pizzaList.map((name,index) => (
-                       <div> <NavDropdown.Item onClick={() => onHandleCategory(index)}>{name}</NavDropdown.Item>
-                       <NavDropdown.Divider /></div>
-                    ))}
-                   
-                  </NavDropdown>
-                </Nav>
-                {/* <Form className="d-flex">
-                  <Form.Control
-                   onChange={() => onHandleChange()}
-                   ref={inputRef}
-                    type="search"
-                    placeholder="Искать продукт.."
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button  onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
-                </Form> */}
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))}
-    </div>
-  );
-}
+          >
+            <Offcanvas.Header onClick={() => setOpen(!open)}  >
+              <Offcanvas.Title onClick={() => setOpen(!open)} id={`offcanvasNavbarLabel-expand-${expand}`}>
+                Навигация
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+            <Form  className="d-flex mb-3">
+                <Form.Control
+                 onChange={() => onHandleChange()}
+                 ref={inputRef}
+                 
+                  type="search"
+                  placeholder="Искать продукт.."
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
+              </Form>
+              <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={"/"}>Главная страница</Link>
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/liked'}>Выбранные пиццы</Link>
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/order'}>Добавленные пиццы</Link>
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/admin'}>Админ панель</Link>
+                <NavDropdown
+                  title="Сортировка по"
+                  id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  className='linkBurger'
+                >
+                  {sortList.map((sort,index) => (
+                     <> <NavDropdown.Item onClick={() => setOpen(!open)}>{sort.name}</NavDropdown.Item>
+                     <NavDropdown.Divider /></>
+                  ))}
+              
+                  
+                </NavDropdown>
+                <NavDropdown
+                  title="Категории "
+                  id={`offcanvasNavbarDropdown-expand-${expand}`}
+                  className='linkBurger'
+                >
+                  {pizzaList.map((name,index) => (
+                     <div> <NavDropdown.Item onClick={() => onHandleCategory(index)}>{name}</NavDropdown.Item>
+                     <NavDropdown.Divider /></div>
+                  ))}
+                 
+                </NavDropdown>
+              </Nav>
+              {/* <Form className="d-flex">
+                <Form.Control
+                 onChange={() => onHandleChange()}
+                 ref={inputRef}
+                  type="search"
+                  placeholder="Искать продукт.."
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button  onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
+              </Form> */}
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+    ))}
+  </div>
+);
+})
 
 export default Burger;

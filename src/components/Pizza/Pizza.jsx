@@ -26,14 +26,6 @@ const Pizza = () => {
       )}
     </>
 
-    // <div className='content__column'>
-    //         <div className="category__name">Все пиццы</div>
-    //        <div className="content__row">
-    //         {/* ---- */}
-    //         {pizzaList.map((obj) => <PizzaBlock key={obj.id} {...obj}/>)}
-    //         {/* ---- */}
-    //        </div>
-    // </div>
   );
 };
 

@@ -90,7 +90,7 @@ const Update = ({ item,setRender,render }) => {
   
   return (
     <div>
-      <Button variant="danger" onClick={() => deleteProduct(item)}>
+      <Button variant="danger m-2" onClick={() => deleteProduct(item)}>
         Удалить
       </Button>
       <Button variant="warning" onClick={() => setOpen(!open)}>

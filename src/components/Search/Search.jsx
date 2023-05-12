@@ -1,19 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import search from "../../assets/icons/search.png";
 import { useRef } from "react";
-import { setFilter } from "../../redux/slices/filterSlice";
+import { setSearch } from "../../redux/slices/searchSlice"; 
 import { Link, useNavigate } from "react-router-dom";
+import React from 'react'
 
-const Search = () => {
+const Search = React.memo(() => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const inputRef = useRef();
 
   const onHandleChange = (event) => {
     const { value } = inputRef.current;
-    dispatch(setFilter(value));
-
-  };
+    dispatch(setSearch(value));
+  }
+  // const onHandleChange = React.useCallback((event) => {
+  //     const { value } = inputRef.current;
+  //     dispatch(setSearch(value));
+  //   },[])
 
   return (
     <div className="pizza__body__second">
@@ -32,6 +36,6 @@ const Search = () => {
       
     </div>
   );
-};
+})
 
 export default Search;
