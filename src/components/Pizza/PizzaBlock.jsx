@@ -7,17 +7,17 @@ import nolikes from '../../assets/icons/liked.png'
 
 import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
+import { pizzaAddedGroup } from "../../redux/slices/addSlice";
 
-const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
-  
-  
+const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => {
+    const {addedPizza,groupAdd} = useSelector(state => state.addSlice)  
 
+    console.log(groupAdd);
   const navigation = useNavigate();
-  
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
+
   const dispatch = useDispatch();
-  console.log(activeType);
   function likeEt (id){
       dispatch(setLike(id));
       alertify.error('Вы удалили пиццу из выбранные!');
@@ -27,12 +27,9 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
     alertify.success('Вы добывили пиццу в выбранные!');
 
 }
-  const cartItem = useSelector((state) =>
-    state.addSlice.addedPizza.find((obj) => obj.id === id)
-  );
-  const addedCount = cartItem ? cartItem.count : 0;
 
-  const addNewPizza = (activeType,activeSize) => {
+
+  const addNewPizza = (activeType,activeSize,setCounts) => {
     const date = new Date();
     
     const item = {
@@ -44,7 +41,8 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       sizes:activeSize,
       date: {date: date.getDate(),month: date.getMonth(),year: date.getFullYear()}
     };
-    console.log(item);
+    
+
     if (item.types === undefined) {
       alertify.error("Вы не выбрали тип");
     } else if (item.sizes === undefined) {
@@ -52,6 +50,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
     } else {
       alertify.success("Вы добавили " + item.title);
       dispatch(addPizza(item));
+      dispatch(pizzaAddedGroup(item));
     }
     
   };
@@ -105,7 +104,10 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
         <div className="blockpizza__price">от {price} ₽</div>
         <div onClick={() => addNewPizza(activeType,activeSize)} className="blockpizza__add">
           <button>
-            + Добавить {addedCount > 0 && <span>{addedCount}</span>}
+            <span>+ Добавить</span>
+              {groupAdd.map(obj => (
+                <div>{obj.id === id ? <span className="spantu">{obj.countGroup}</span>: ''}</div>
+              ))}
           </button>
         </div>
       </div>
