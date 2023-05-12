@@ -13,13 +13,23 @@ import NotFound from "../NotFound/NotFound";
 import RecentOrders from "../RecentOrder/RecentOrder";
 import { setOrderedPizza } from "../../redux/slices/orderedSlice";
 
+const typesList = [
+  {label: 'тонкое',value: 0},
+  {label: 'традиционное',value: 1}
+]
+const sizesList = [
+  {label: '26 см',value: 26},
+  {label: '30 см',value: 30},
+  {label: '40 см',value: 40}
+]
+
 const Order = () => {
   const navigate = useNavigate();
   
   const addedPizzaList = useSelector((state) => state.addSlice.addedPizza);
   const { addedPizza } = useSelector((state) => state.addSlice);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const removeOnePizzas = (index) => {
     dispatch(removeOnePizza(index));
     alertify.error("Удален успешно!!");
@@ -70,7 +80,7 @@ const Order = () => {
                 <div className="order__text__body">
                   <div className="order__title">{pizza.title}</div>
                   <div className="order__title__text">
-                    {pizza.label} / {pizza.label} см.
+                    {typesList[pizza.types].label} / {sizesList[pizza.sizes].label} 
                   </div>
                 </div>
               </div>

@@ -9,12 +9,15 @@ import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
 
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
+  
+  
+
   const navigation = useNavigate();
   
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
   const dispatch = useDispatch();
- 
+  console.log(activeType);
   function likeEt (id){
       dispatch(setLike(id));
       alertify.error('Вы удалили пиццу из выбранные!');
@@ -29,7 +32,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
   );
   const addedCount = cartItem ? cartItem.count : 0;
 
-  const addNewPizza = () => {
+  const addNewPizza = (activeType,activeSize) => {
     const date = new Date();
     
     const item = {
@@ -37,13 +40,14 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       title,
       price,
       imageUrl,
-      types,
-      sizes,
+      types:activeType,
+      sizes:activeSize,
       date: {date: date.getDate(),month: date.getMonth(),year: date.getFullYear()}
     };
-    if (item.types[0] === undefined) {
+    console.log(item);
+    if (item.types === undefined) {
       alertify.error("Вы не выбрали тип");
-    } else if (item.sizes[0] === undefined) {
+    } else if (item.sizes === undefined) {
       alertify.error("Вы не выбрали размер");
     } else {
       alertify.success("Вы добавили " + item.title);
@@ -99,7 +103,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
 
       <div className="blockpizza__price__add">
         <div className="blockpizza__price">от {price} ₽</div>
-        <div onClick={() => addNewPizza()} className="blockpizza__add">
+        <div onClick={() => addNewPizza(activeType,activeSize)} className="blockpizza__add">
           <button>
             + Добавить {addedCount > 0 && <span>{addedCount}</span>}
           </button>

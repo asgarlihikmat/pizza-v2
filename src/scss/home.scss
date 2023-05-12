@@ -633,6 +633,9 @@ body::-webkit-scrollbar {
     }
   }
 }
+.update__image img{
+  max-width: 100%;
+}
 
 .pagination {
   display: flex;
