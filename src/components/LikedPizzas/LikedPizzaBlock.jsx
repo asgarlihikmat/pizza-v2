@@ -4,12 +4,13 @@ import { addPizza } from "../../redux/slices/addSlice";
 import alertify from "alertifyjs";
 import likes from '../../assets/icons/like.png'
 import nolikes from '../../assets/icons/liked.png'
-
+import { pizzaAddedGroup } from "../../redux/slices/addSlice";
 import { setLike } from "../../redux/slices/pizzaSlice";
 import NotFound from "../NotFound/NotFound";
 
 const LikedPizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
-  
+  const {addedPizza,groupAdd} = useSelector(state => state.addSlice)  
+
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
   const dispatch = useDispatch();
@@ -30,17 +31,18 @@ const LikedPizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
       title,
       price,
       imageUrl,
-      types,
-      sizes,
+      types:activeType,
+      sizes:activeSize,
       date: {date: date.getDay(),month: date.getMonth(),year: date.getFullYear()}
     };
-    if (item.types[0] === undefined) {
+    if (item.types === undefined) {
       alertify.error("Вы не выбрали тип");
-    } else if (item.sizes[0] === undefined) {
+    } else if (item.sizes === undefined) {
       alertify.error("Вы не выбрали размер");
     } else {
       alertify.success("Вы добавили " + item.title);
       dispatch(addPizza(item));
+      dispatch(pizzaAddedGroup(item));
     }
   };
 
@@ -87,9 +89,12 @@ const LikedPizzaBlock = ({ id, title, imageUrl, sizes, types, price,like }) => {
     <div className="blockpizza__price__add">
       <div className="blockpizza__price">от {price} ₽</div>
       <div onClick={() => addNewPizza()} className="blockpizza__add">
-        <button>
-          + Добавить {addedCount > 0 && <span>{addedCount}</span>}
-        </button>
+      <button>
+            <span>+ Добавить</span>
+              {groupAdd.map((obj,index) => (
+                <div key={index}>{obj.id === id ? <span className="spantu">{obj.countGroup}</span>: ''}</div>
+              ))}
+          </button>
       </div>
     </div>
   </div>
