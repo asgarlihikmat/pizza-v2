@@ -42,7 +42,7 @@ const Order = () => {
     return obj.count * obj.price + sum;
   }, 0);
 
-  function pay() {
+  function pay() { 
     alert('Оплата успешно!')
     dispatch(setOrderedPizza(addedPizza))
     dispatch(clearAllPizzas());

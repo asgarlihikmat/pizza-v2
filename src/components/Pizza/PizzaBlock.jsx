@@ -12,7 +12,6 @@ import { pizzaAddedGroup } from "../../redux/slices/addSlice";
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => {
     const {addedPizza,groupAdd} = useSelector(state => state.addSlice)  
 
-    console.log(groupAdd);
   const navigation = useNavigate();
   const [activeSize, setActiveSize] = React.useState();
   const [activeType, setActiveType] = React.useState();
