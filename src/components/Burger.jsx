@@ -52,8 +52,8 @@ const Burger = React.memo(() => {
 return (
   
   <>
-    {[ 'xxl'].map((expand) => (
-      <Navbar  expanded={open}  bg="light" expand={expand} className="burger">
+    {[ 'xxl'].map((expand,index) => (
+      <Navbar key={index} expanded={open}  bg="light" expand={expand} className="burger">
         <Container fluid>
           <Navbar.Brand onClick={() => setOpen(!open)} href="#">Меню</Navbar.Brand>
           <Navbar.Toggle onClick={() => setOpen(!open)}  aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -93,8 +93,10 @@ return (
                   className='linkBurger'
                 >
                   {sortList.map((sort,index) => (
-                     <div> <NavDropdown.Item key={index} onClick={() => setOpen(!open)}>{sort.name}</NavDropdown.Item>
-                     <NavDropdown.Divider /></div>
+                    <div key={index}>
+                     <NavDropdown.Item key={index} onClick={() => setOpen(!open)}>{sort.name}</NavDropdown.Item>
+                     <NavDropdown.Divider />
+                    </div>
                   ))}
               
                   
@@ -105,8 +107,11 @@ return (
                   className='linkBurger'
                 >
                   {pizzaList.map((name,index) => (
-                     <div> <NavDropdown.Item key={index} onClick={() => onHandleCategory(index)}>{name}</NavDropdown.Item>
-                     <NavDropdown.Divider /></div>
+                    <div key={index}>
+                      <NavDropdown.Item onClick={() => onHandleCategory(index)}>{name}</NavDropdown.Item>
+                      <NavDropdown.Divider />
+                    </div>
+                   
                   ))}
                  
                 </NavDropdown>
