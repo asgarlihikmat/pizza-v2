@@ -38,7 +38,7 @@ function Pagination() {
               <option value="15" defaultValue>Pagination</option>
               <option value="10">10</option>
               <option value="5">5</option>
-              <option value="3">3</option>
+              <option value="3">3</option> 
           </select>
       </div>
       

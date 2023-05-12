@@ -51,7 +51,7 @@ const Burger = React.memo(() => {
   }
 return (
   
-  <div>
+  <>
     {[ 'xxl'].map((expand) => (
       <Navbar  expanded={open}  bg="light" expand={expand} className="burger">
         <Container fluid>
@@ -93,8 +93,8 @@ return (
                   className='linkBurger'
                 >
                   {sortList.map((sort,index) => (
-                     <> <NavDropdown.Item onClick={() => setOpen(!open)}>{sort.name}</NavDropdown.Item>
-                     <NavDropdown.Divider /></>
+                     <div> <NavDropdown.Item key={index} onClick={() => setOpen(!open)}>{sort.name}</NavDropdown.Item>
+                     <NavDropdown.Divider /></div>
                   ))}
               
                   
@@ -105,7 +105,7 @@ return (
                   className='linkBurger'
                 >
                   {pizzaList.map((name,index) => (
-                     <div> <NavDropdown.Item onClick={() => onHandleCategory(index)}>{name}</NavDropdown.Item>
+                     <div> <NavDropdown.Item key={index} onClick={() => onHandleCategory(index)}>{name}</NavDropdown.Item>
                      <NavDropdown.Divider /></div>
                   ))}
                  
@@ -127,7 +127,7 @@ return (
         </Container>
       </Navbar>
     ))}
-  </div>
+  </>
 );
 })
 

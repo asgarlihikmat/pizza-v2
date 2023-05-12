@@ -668,8 +668,8 @@ body::-webkit-scrollbar {
 
 
 .limit  {
-  margin: -60px 0px 0px 270px;
-  
+ display: flex;
+ justify-content: center;
 }
 .limit select {
   cursor: pointer;
