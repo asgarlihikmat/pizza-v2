@@ -44,9 +44,7 @@ const Home = () => {
   return (
     <div className="wrapper">
 
-    {addedPizza.length > 0 ? <div onClick={() => navigate('/order')}  className="stickyContainer"><div className="stickyContent"><span>{addedPizza.length}</span> View order</div>
-    <div className="stickyPrice">Руб {totalPrice}</div>
-    </div>  : ''}
+    
       <div className="container"> 
          
         <div className="header">
@@ -114,8 +112,12 @@ const Home = () => {
       { pathname === "/admin"||pathname === "/order" || pathname === "/orderdetail" || pathname === `/pizza/${id}` ? '' :  <Pagination />}
      
       <div className="createdBy">
+        
         <div className="createdBy__title">Hikmat Asgarli</div>
       </div>
+      {addedPizza.length > 0 ? <div onClick={() => navigate('/order')}  className="stickyContainer"><div className="stickyContent"><span>{addedPizza.length}</span> View order</div>
+    <div className="stickyPrice">Руб {totalPrice}</div>
+    </div>  : ''}
     </div>
   );
 }
