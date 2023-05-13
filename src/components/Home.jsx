@@ -36,14 +36,16 @@ const Home = () => {
     dispatch(fetchPizzas({ category,search, page,limit,sort }));
   }, [category, search, page,limit, sort]);
   
-
+  const totalPrice = addedPizza.reduce((sum, obj) => {
+    return obj.count * obj.price + sum;
+  }, 0);
 
   
   return (
     <div className="wrapper">
 
-    {addedPizza.length > 0 ? <div onClick={() => navigate('/order')}  className="stickyContainer"><div className="stickyContent">{addedPizza.length} View order</div>
-    <div className="stickyPrice">AZN 150</div>
+    {addedPizza.length > 0 ? <div onClick={() => navigate('/order')}  className="stickyContainer"><div className="stickyContent"><span>{addedPizza.length}</span> View order</div>
+    <div className="stickyPrice">Руб {totalPrice}</div>
     </div>  : ''}
       <div className="container"> 
          
