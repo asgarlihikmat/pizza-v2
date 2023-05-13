@@ -1,8 +1,9 @@
 @import "../../public/nullstyle.scss";
 @import "../scss/responsbility.scss";
 
+
 .wrapper {
-  // max-width: 100vw;
+
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background: linear-gradient(
     90deg,
@@ -13,9 +14,9 @@
   padding: 50px 40px 0px 40px;
 }
 
-body::-webkit-scrollbar {
-  display: none;
-}
+// body::-webkit-scrollbar {
+//   display: none;
+// }
 .container {
   max-width: 1300px;
   min-height: 100vh;
@@ -981,6 +982,10 @@ body::-webkit-scrollbar {
   font-weight: 600;
   }
   .stickyContainer{
+    
+    height: 20vh;
+    
+    cursor: pointer;
     transition: width 2s, height 2s, transform 2s;
      display: block;
      position: sticky;
@@ -992,7 +997,7 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: space-between;
     padding: 15px 25px;
-    margin: 0px 30px;
+    margin: 0px 10px;
     border-radius: 10px;
     background: linear-gradient(
     90deg,
