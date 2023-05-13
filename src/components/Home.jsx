@@ -28,7 +28,8 @@ const Home = () => {
   const { page,limit,status } = useSelector((state) => state.pizzaSlice);
   const { sort } = useSelector((state) => state.filterSlice);
   const { search } = useSelector((state) => state.searchSlice);
-  const { pathname } = useLocation();
+  const { pathname } = useLocation(); 
+  const {addedPizza} = useSelector(state => state.addSlice);
    
 
   React.useEffect(() => {
@@ -40,7 +41,12 @@ const Home = () => {
   
   return (
     <div className="wrapper">
-      <div className="container">
+
+    {addedPizza.length > 0 ? <div onClick={() => navigate('/order')}  className="stickyContainer"><div className="stickyContent">{addedPizza.length} View order</div>
+    <div className="stickyPrice">AZN 150</div>
+    </div>  : ''}
+      <div className="container"> 
+         
         <div className="header">
           <div className="pizza">
           <div className="pizza__body__one">
@@ -96,10 +102,12 @@ const Home = () => {
             </div>
             </div>
           ) : (
+            
             <Outlet />
           )}
-
+  
         </div>
+        
       </div>
       { pathname === "/admin"||pathname === "/order" || pathname === "/orderdetail" || pathname === `/pizza/${id}` ? '' :  <Pagination />}
      

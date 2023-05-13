@@ -791,6 +791,9 @@ body::-webkit-scrollbar {
   }
 }
 @media only screen and (max-width: 9000px) {
+  .stickyContainer{
+    display: none;
+  }
   .burger{
     display: none;
   }
@@ -956,4 +959,36 @@ body::-webkit-scrollbar {
   .menu{
     display: none;
   }
+  .stickyContent{
+
+  }
+  .stickyPrice{
+  font-weight: 0;
+  }
+  .stickyContainer{
+    transition: width 2s, height 2s, transform 2s;
+     display: block;
+     position: sticky;
+     top: 700px;
+     font-weight: 700;
+     font-size: 1rem;
+     z-index: 1;
+     border: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 0px 15px;
+    border-radius: 5px;
+    background: linear-gradient(
+    90deg,
+    rgba(255, 175, 0, 1) 0%,
+    rgba(238, 124, 0, 1) 27%,
+    rgba(255, 175, 0, 1) 50%
+  );
+  color: white;
+  }
+
+
+
 }
+

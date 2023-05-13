@@ -7,13 +7,17 @@ import MainNotFound from "../NotFound/MainNotFound";
 
 const Pizza = () => {
   const pizzaList = useSelector((state) => state.pizzaSlice.pizza);
+
   return (
     <>
       {pizzaList.length === 0 ? (
         <MainNotFound />
       ) : (
         <div className="content__column">
-          <div className="category__name">Все пиццы</div>
+         <div className="category__name">Все пиццы</div>
+
+           
+
           <div className="content__row">
             {/* ---- */}
             {pizzaList.map((obj,index) => (

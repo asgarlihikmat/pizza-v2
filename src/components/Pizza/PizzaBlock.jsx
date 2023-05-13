@@ -60,6 +60,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => 
   }
   return (
     <div className="blockpizza">
+          
       <div className="blockpizza__image">
         <img onClick={() => pizzaDetail(id)} className="pizzaimage" src={imageUrl} /> 
         {like === 1 ? <img onClick={() => likeEt(id)} className='like' src={nolikes} />
