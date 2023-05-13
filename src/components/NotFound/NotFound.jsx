@@ -11,18 +11,18 @@ const NotFound = () => {
   return (
     <div className="empty">
       
-      <div className="empty__title font">Корзина пустая</div>
-      <div className="empty__text font">
-        <p>Вероятней всего, вы не заказывали ещё пиццу.</p>
-        <p>Для того, чтобы заказать пиццу, перейди на главную страницу.</p>{" "}
-      </div>
+      <div className="empty__title font">Basket is empty</div>
+       <div className="empty__text font">
+         <p>Most likely, you haven't ordered pizza yet.</p>
+         <p>To order a pizza, go to the main page.</p>{" "}
+       </div>
       <div className="empty__image">
         <img src={emptyLogo} />
       </div>
       <div className="empty__button">
         <button>
           <Link className="link" to={"/"}>
-            Вернуться назад
+            Back
           </Link>
         </button>
       </div>

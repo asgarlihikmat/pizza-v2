@@ -10,15 +10,15 @@ const RecentOrders = () => {
   return (
 
     <div className="recentorder__wrapper">
-      {orderList.length > 0 ? <div className="recentorder__justtitle">Недавние заказы</div> : ''}
+      {orderList.length > 0 ? <div className="recentorder__justtitle">Recent Orders</div> : ''}
       <div className="recentorder__container">
         {orderList.map((item, index) => (
           <div key={index} onClick={() => navigate("/orderdetail")} className="recentorder__items">
               <div>
-                <div className="recentorder__title">Заказ #{index + 1}</div>
-                <div className="recentorder__shipping">Доставлено</div>
+                <div className="recentorder__title">Order #{index + 1}</div>
+                <div className="recentorder__shipping">Delivered</div>
                 <div className="recentorder__date">
-                  Доставлен {month[item[0].date.month]} {item[0].date.date},{item[0].date.year}
+                Delivered {month[item[0].date.month]} {item[0].date.date},{item[0].date.year}
                 </div>
                 <div className="recentorder__images">
                     {item.map ((image,index) => (

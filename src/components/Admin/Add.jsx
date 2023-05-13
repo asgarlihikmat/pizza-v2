@@ -8,13 +8,13 @@ import { Button, Modal } from "react-bootstrap";
 
 
 const typesList = [
-  {label: 'тонкое',value: 1},
-  {label: 'традиционное',value: 2}
+  {label: 'thin',value: 1},
+  {label: 'traditional',value: 2}
 ]
 const sizesList = [
-  {label: '26 см',value: 26},
-  {label: '30 см',value: 30},
-  {label: '40 см',value: 40}
+  {label: '26 sm',value: 26},
+  {label: '30 sm',value: 30},
+  {label: '40 sm',value: 40}
 ]
 const Add = ({setRender,render}) => {
   const[open,setOpen] = React.useState(false);
@@ -45,23 +45,23 @@ function addPizza(sizes,types) {
     }
   
     if (imageUrl === undefined || imageUrl === "") {
-      alertify.error("Заполноте пажалуйста фото пиццы  ");
+      alertify.error("Please fill in the photo of the pizza. ");
     } else if (title === undefined || title === "") {
-      alertify.error("Заполноте пажалуйста имя пиццы");
+      alertify.error("Please fill in the name of the pizza.");
     } else if (price === undefined || price === "") {
-      alertify.error("Заполноте пажалуйста цену пиццы");
+      alertify.error("Please fill in the pizza price.");
     } else if (category === undefined) {
-      alertify.error("Заполноте пажалуйста категорию пиццы");
+      alertify.error("Please fill in the pizza category.");
     } else if (types[0] === undefined) {
-      alertify.error("Заполноте пажалуйста тип пиццы");
+      alertify.error("Please fill in the type of pizza.");
     } else if (sizes[0] === undefined) {
-      alertify.error("Заполноте пажалуйста размер пиццы");
+      alertify.error("Please fill in the pizza size.");
     } else {
       dispatch(postPizzas(allAddedItems));
       setRender(render => !render)
       setHandleAdd([]);
       setOpen(!open);
-      alertify.success('Вы очень успешно создали новую пиццу !')
+      alertify.success('You have successfully created a new pizza!')
     }
     
   }
@@ -70,7 +70,7 @@ function addPizza(sizes,types) {
     <>
       <div className="d-flex justify-content-start">
       <Button className="mt-4 mb-2" variant="success" onClick={() => setOpen(!open)}>
-      Добавить новую пиццу
+      Add new pizza
       </Button>
       </div>
       
@@ -82,19 +82,19 @@ function addPizza(sizes,types) {
         keyboard={false}
       >
         <Modal.Header>
-          <Modal.Title>Добавить новую пиццу</Modal.Title>
+          <Modal.Title>Add new pizza</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <div className="input-group flex-nowrap">
                 <span className="input-group-text" id="addon-wrapping">
-                  Фото URL пиццы
+                Pizza URL Photo:
                 </span>
                 <input
                   onChange={handleChange}
                   name="imageUrl"
                   type="text"
                   className="form-control"
-                  placeholder="Добавьте Url Image"
+                  placeholder="Add Url Image"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
                 />
@@ -102,14 +102,14 @@ function addPizza(sizes,types) {
               {/* ------- */}
               <div className="input-group flex-nowrap">
                 <span className="input-group-text" id="addon-wrapping">
-                  Имя Пицци
+                Pizza Name:
                 </span>
                 <input
                   onChange={handleChange}
                   name="title"
                   type="text"
                   className="form-control"
-                  placeholder="Добавтье имя пиццы"
+                  placeholder="Add pizza name"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
                 />
@@ -117,14 +117,14 @@ function addPizza(sizes,types) {
               {/* ------- */}
               <div className="input-group flex-nowrap">
                 <span className="input-group-text" id="addon-wrapping">
-                  Цена пиццы
+                Pizza price:
                 </span>
                 <input
                   onChange={handleChange}
                   name="price"
                   type="text"
                   className="form-control"
-                  placeholder="Добавтье цену пиццы"
+                  placeholder="Add pizza price"
                   aria-label="Username"
                   aria-describedby="addon-wrapping"
                 />
@@ -132,7 +132,7 @@ function addPizza(sizes,types) {
               {/* ------- */}
               <div className="input-group">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">
-                  Категория пиццы
+                Pizza category:
                 </label>
                 <select
                   onChange={handleChange}
@@ -141,13 +141,14 @@ function addPizza(sizes,types) {
                   id="inputGroupSelect01"
                   
                 >
-                  <option >Выбрать...</option>
-                  <option value="0">Все</option>
-                  <option value="1">Мясные</option>
-                  <option value="2">Гриль</option>
-                  <option value="3">Острые</option>
-                  <option value="4">Закрытые</option>
-                  <option value="5">Гриль</option>
+                  <option >Choose...</option>
+                  <option value="0">All</option>
+                  <option value="1">Meat</option>
+                  <option value="2">Vegetarian</option>
+                  <option value="3">Grill</option>
+                  <option value="4">Acute</option>
+                  <option value="5">Closed</option>
+                  
                 </select>
               </div>
              
@@ -171,9 +172,9 @@ function addPizza(sizes,types) {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={()=> setOpen(!open)}>
-            Закрыть
+            Close
           </Button>
-          <Button variant="primary" onClick={()=> addPizza(sizes,types)}>Добавить</Button>
+          <Button variant="primary" onClick={()=> addPizza(sizes,types)}>Create</Button>
         </Modal.Footer>
       </Modal>
 

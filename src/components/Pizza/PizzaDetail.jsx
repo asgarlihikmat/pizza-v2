@@ -18,7 +18,7 @@ const PizzaDetail = () =>{
       
           }catch(error){
               console.log('ERROR',error.message);
-              alert('Ошибка при получении пицц')
+              alert('Error when getting pizzas')
           }finally{
       
           }

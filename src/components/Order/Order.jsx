@@ -14,13 +14,13 @@ import RecentOrders from "../RecentOrder/RecentOrder";
 import { setOrderedPizza } from "../../redux/slices/orderedSlice";
 
 const typesList = [
-  {label: 'тонкое',value: 0},
-  {label: 'традиционное',value: 1}
+  {label: 'thin',value: 1},
+  {label: 'traditional',value: 2}
 ]
 const sizesList = [
-  {label: '26 см',value: 26},
-  {label: '30 см',value: 30},
-  {label: '40 см',value: 40}
+  {label: '26 sm',value: 26},
+  {label: '30 sm',value: 30},
+  {label: '40 sm',value: 40}
 ]
 
 const Order = () => {
@@ -32,7 +32,7 @@ const Order = () => {
   const dispatch = useDispatch();
   const removeOnePizzas = (index) => {
     dispatch(removeOnePizza(index));
-    alertify.error("Удален успешно!!");
+    alertify.error("Deleted successfully!");
   };
   const count = addedPizza.reduce((sum, obj) => {
     return obj.count + sum;
@@ -43,7 +43,7 @@ const Order = () => {
   }, 0);
 
   function pay() { 
-    alert('Оплата успешно!')
+    alert('Payment successful!')
     dispatch(setOrderedPizza(addedPizza))
     dispatch(clearAllPizzas());
     
@@ -56,18 +56,18 @@ const Order = () => {
           <div className="order__one">
             <div className="order__cart">
               <img src={cart} />
-              Корзина
+              Basket
             </div>
             <div
               onClick={() => {
-                if (window.confirm("Вы уверени что хотите удалить?")) {
+                if (window.confirm("Are you sure you want to delete?")) {
                   dispatch(clearAllPizzas());
                 }
               }}
               className="order__empty"
             >
               <img src={emp} />
-              Очистить корзину
+              Empty trash
             </div>
           </div>
          
@@ -115,21 +115,21 @@ const Order = () => {
           
           <div className="order__count">
             <div className="order__all">
-              Всего пицц: <span>{count} шт.</span>
+            Total pizzas: <span>{count} pieces.</span>
             </div>
             <div className="order__summa">
-              Сумма заказа: <span>{priceAll} ₽</span>
+            Order price: <span>{priceAll} $</span>
             </div>
           </div>
           <div className="order__footer">
             <div onClick={() => navigate("/")} className="order__back">
               {" "}
               <Link className="order__back__link" to={"/"}>
-                Вернуться назад
+               Back
               </Link>
             </div>
             <div onClick={() => pay()} className="order__pay">
-              Оплатить сейчас
+            Pay now
             </div>
           </div>
         </div>

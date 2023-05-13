@@ -8,37 +8,37 @@ const Sort = React.memo(({sort}) => {
 
   const sortList = [
     {
-      name: "по цене (DESC)",
+      name: "by price (DESC)",
       type: "desc",
       nameType: "price",
       status: "activex",
     },
     {
-      name: "по цене (ASC)",
+      name: "by price (ASC)",
       type: "asc",
       nameType: "price",
       status: "activex",
     },
     {
-      name: "популярности (DESC)",
+      name: "popularity (DESC)",
       type: "desc",
       nameType: "rating",
       status: "activex",
     },
     {
-      name: "популярности (ASC)",
+      name: "popularity (ASC)",
       type: "asc",
       nameType: "rating",
       status: "activex",
     },
     {
-      name: "по алфавиту (DESC)",
+      name: "alphabetically (DESC)",
       type: "desc",
       nameType: "title",
       status: "activex",
     },
     {
-      name: "по алфавиту (ASC)",
+      name: "alphabetically (ASC)",
       type: "asc",
       nameType: "title",
       status: "activex",
@@ -56,13 +56,13 @@ const Sort = React.memo(({sort}) => {
       
       <div className="menu__filter">
         <img className="menu__image" src={strelka} />
-        <span className="menu__sort">Сортировка по:</span>
+        <span className="menu__sort">Sort by:</span>
         <div className="menu__popular">
           <Form.Select onChange={onHandleChange}>
             {sort.name ? (
               <option>{sort.name}</option>
             ) : (
-              <option>не выбран</option>
+              <option>not selected</option>
             )}
             {sortList.map((sort, index) => (
               <option key={index} value={index}>

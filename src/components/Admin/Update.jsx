@@ -7,22 +7,22 @@ import { MultiSelect } from "react-multi-select-component";
 import { fetchAdminPizzas } from "../../redux/slices/adminSlice";
 
 const typesList = [
-  { label: "тонкое", value: 1 },
-  { label: "традиционное", value: 2 },
-];
+  {label: 'thin',value: 1},
+  {label: 'traditional',value: 2}
+]
 const sizesList = [
-  { label: "26 см", value: 26 },
-  { label: "30 см", value: 30 },
-  { label: "40 см", value: 40 },
-];
+  {label: '26 sm',value: 26},
+  {label: '30 sm',value: 30},
+  {label: '40 sm',value: 40}
+]
 const categoryList = [
   
-  "Все",
-  "Мясные",
-  "Вегетарианская",
-  "Гриль",
-  "Острые",
-  "Закрытые",
+  "All",
+  "Meat",
+  "Vegetarian",
+  "Grill",
+  "Sharp",
+  "Closed",
 ];
 const Update = ({ item,setRender,render }) => {
   const dispatch = useDispatch();
@@ -40,10 +40,10 @@ const Update = ({ item,setRender,render }) => {
     if (sekret === "javascript") {
       setRender(render => !render)
       dispatch(deletePizza(item.id));
-      alertify.success("Вы удалили пиццу!!");
+      alertify.success("You have successfully deleted the pizza!!");
       
     } else {
-      alertify.error("Не верно родноййй!!");
+      alertify.error("Password is wrong my dear!");
     }
   }
  
@@ -67,21 +67,21 @@ const Update = ({ item,setRender,render }) => {
     };
 
     if (imageUrl === undefined || imageUrl === "") {
-      alertify.error("Заполноте пажалуйста фото пиццы  ");
+      alertify.error("Please fill in the photo of the pizza. ");
     } else if (title === undefined || title === "") {
-      alertify.error("Заполноте пажалуйста имя пиццы");
+      alertify.error("Please fill in the name of the pizza.");
     } else if (price === undefined || price === "") {
-      alertify.error("Заполноте пажалуйста цену пиццы");
+      alertify.error("Please fill in the pizza price.");
     } else if (category === undefined) {
-      alertify.error("Заполноте пажалуйста категорию пиццы");
+      alertify.error("Please fill in the pizza category.");
     } else if (types[0] === undefined) {
-      alertify.error("Заполноте пажалуйста тип пиццы");
+      alertify.error("Please fill in the type of pizza.");
     } else if (sizes[0] === undefined) {
-      alertify.error("Заполноте пажалуйста размер пиццы");
+      alertify.error("Please fill in the pizza size.");
     } else {
 
       dispatch(updatePizza(allUpdatedroduct));
-      alertify.success('Вы успешно изменили пиццу!')
+      alertify.success('You have successfully changed the pizza!')
       setOpen(!open);
     }  
     setRender(render => !render);
@@ -91,15 +91,15 @@ const Update = ({ item,setRender,render }) => {
   return (
     <div>
       <Button variant="danger m-2" onClick={() => deleteProduct(item)}>
-        Удалить
+      Delete
       </Button>
       <Button variant="warning" onClick={() => setOpen(!open)}>
-        Изменить
+        Update
       </Button>
 
       <Modal show={open} onHide={open} backdrop="static" keyboard={false}>
         <Modal.Header>
-          <Modal.Title>Редактировать продукт</Modal.Title>
+          <Modal.Title>Edit product</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="update__container">
@@ -110,13 +110,13 @@ const Update = ({ item,setRender,render }) => {
             {/* --------- */}
             <InputGroup className="mb-3">
               <InputGroup.Text id="basic-addon1">
-                Фото URL продукта
+                Image URL product
               </InputGroup.Text>
               <Form.Control
                 name="imageUrl"
                 onChange={handleChange}
                 value={updatedProduct.imageUrl}
-                placeholder="Username"
+                placeholder="Image url add here"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
               />
@@ -126,13 +126,13 @@ const Update = ({ item,setRender,render }) => {
             {/* --------- */}
             <InputGroup className="mb-3">
               <InputGroup.Text id="basic-addon1">
-                Название продукта
+                Product name:
               </InputGroup.Text>
               <Form.Control
                 name="title"
                 onChange={handleChange}
                 value={updatedProduct.title}
-                placeholder="Username"
+                placeholder="Product name "
                 aria-label="Username"
                 aria-describedby="basic-addon1"
               />
@@ -141,12 +141,12 @@ const Update = ({ item,setRender,render }) => {
             {/* ---------------- */}
 
             <InputGroup className="mb-3">
-              <InputGroup.Text id="basic-addon1">Цена продукта</InputGroup.Text>
+              <InputGroup.Text id="basic-addon1">Prodyct price:</InputGroup.Text>
               <Form.Control
                 name="price"
                 onChange={handleChange}
                 value={updatedProduct.price}
-                placeholder="Username"
+                placeholder="Product price"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
               />
@@ -154,10 +154,10 @@ const Update = ({ item,setRender,render }) => {
             {/* ------- */}
             <div className="input-group">
               <label className="input-group-text" htmlFor="inputGroupSelect01">
-                Категория пиццы
+                Pizza category:
               </label>
               <Form.Select name='category' onChange={handleChange} aria-label="Default select example">
-                <option>Выбран - {categoryList[item.category]}</option>
+                <option>Selected - {categoryList[item.category]}</option>
                 {categoryList.map((name,index) => (
                   <option key={index} value={index}>{name}</option>
                 ))}
@@ -188,13 +188,13 @@ const Update = ({ item,setRender,render }) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setOpen(!open)}>
-            Закрыть
+            Close
           </Button>
           <Button
             variant="primary"
             onClick={() => updateProduct(updatedProduct)}
           >
-            Изменить
+            Update
           </Button>
         </Modal.Footer>
       </Modal>

@@ -26,12 +26,12 @@ const AdminTable = () => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Фото пиццы</th>
-            <th scope="col">Имя пиццы</th>
-            <th scope="col">Цена</th>
-            <th scope="col">Типы</th>
-            <th scope="col">Размер</th>
-            <th scope="col">Действие</th>
+            <th scope="col">Pizza photo</th>
+             <th scope="col">Pizza name</th>
+             <th scope="col">Price</th>
+             <th scope="col">Types</th>
+             <th scope="col">Size</th>
+             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -40,7 +40,7 @@ const AdminTable = () => {
               <th scope="row">{item.id}</th>
               <td><img className="admin__image" src={item.imageUrl}/></td>
               <td>{item.title}</td>
-              <td>{item.price} руб.</td>
+              <td>{item.price} $.</td>
               <td>
               <ul className="admin__list">
               {item.types.map((m,index) => (

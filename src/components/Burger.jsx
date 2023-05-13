@@ -13,20 +13,20 @@ import { Link } from 'react-router-dom';
 import { setSort } from '../redux/slices/filterSlice';
 import React from 'react'
 const sortList = [
-    {name: "по цене (DESC)", type: "desc",nameType: 'price',status: "activex"},
-    {name: "по цене (ASC)", type: "asc",nameType: 'price',status: "activex"},
-    {name: "популярности (DESC)", type: "desc",nameType: 'rating',status: "activex"},
-    {name: "популярности (ASC)", type: "asc",nameType: 'rating',status: "activex"},
-    {name: "по алфавиту (DESC)", type: "desc",nameType: 'title',status: "activex"},
-    {name: "по алфавиту (ASC)", type: "asc",nameType: 'title',status: "activex"}
+    {name: "by price (DESC)", type: "desc",nameType: 'price',status: "activex"},
+    {name: "by price (ASC)", type: "asc",nameType: 'price',status: "activex"},
+    {name: "popularity (DESC)", type: "desc",nameType: 'rating',status: "activex"},
+    {name: "popularity (ASC)", type: "asc",nameType: 'rating',status: "activex"},
+    {name: "alphabetically (DESC)", type: "desc",nameType: 'title',status: "activex"},
+    {name: "alphabetically (ASC)", type: "asc",nameType: 'title',status: "activex"}
   ]
 const pizzaList = [
-    "Все ",
-    "Мясные",
-    "Вегетарианская",
-    "Гриль",
-    "Острые",
-    "Закрытые",
+  "All",
+  "Meat",
+  "Vegetarian",
+  "Grill",
+  "Sharp",
+  "Closed",
   ];
 
 
@@ -55,7 +55,7 @@ return (
     {[ 'xxl'].map((expand,index) => (
       <Navbar key={index} expanded={open}  bg="light" expand={expand} className="burger">
         <Container fluid>
-          <Navbar.Brand onClick={() => setOpen(!open)} href="#">Меню</Navbar.Brand>
+          <Navbar.Brand onClick={() => setOpen(!open)} href="#">Menu</Navbar.Brand>
           <Navbar.Toggle onClick={() => setOpen(!open)}  aria-controls={`offcanvasNavbar-expand-${expand}`} />
           <Navbar.Offcanvas
          
@@ -66,7 +66,7 @@ return (
           >
             <Offcanvas.Header onClick={() => setOpen(!open)}  >
               <Offcanvas.Title onClick={() => setOpen(!open)} id={`offcanvasNavbarLabel-expand-${expand}`}>
-                Навигация
+              Navigation
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
@@ -76,19 +76,19 @@ return (
                  ref={inputRef}
                  
                   type="search"
-                  placeholder="Искать продукт.."
+                  placeholder="Search product.."
                   className="me-2"
                   aria-label="Search"
                 />
-                <Button onClick={() => setOpen(!open)} variant="outline-success">Поиск</Button>
+                <Button onClick={() => setOpen(!open)} variant="outline-success">Search</Button>
               </Form>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Link onClick={() => setOpen(!open)} className='linkBurger' to={"/"}>Главная страница</Link>
-                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/liked'}>Выбранные пиццы</Link>
-                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/order'}>Добавленные пиццы</Link>
-                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/admin'}>Админ панель</Link>
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={"/"}>Main page</Link>
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/liked'}>Selected pizzas</Link>
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/order'}>Added pizzas</Link>
+                <Link onClick={() => setOpen(!open)} className='linkBurger' to={'/admin'}>Admin Panel</Link>
                 <NavDropdown
-                  title="Сортировка по"
+                  title="Sort by"
                   id={`offcanvasNavbarDropdown-expand-${expand}`}
                   className='linkBurger'
                 >
@@ -102,7 +102,7 @@ return (
                   
                 </NavDropdown>
                 <NavDropdown
-                  title="Категории "
+                  title="Categories "
                   id={`offcanvasNavbarDropdown-expand-${expand}`}
                   className='linkBurger'
                 >

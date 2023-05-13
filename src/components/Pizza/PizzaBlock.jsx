@@ -20,11 +20,11 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => 
   const dispatch = useDispatch();
   function likeEt (id){
       dispatch(setLike(id));
-      alertify.error('Вы удалили пиццу из выбранные!');
+      alertify.error('You have removed a pizza from your favorites!');
   }
   function likeEtme (id){
     dispatch(setLike(id));
-    alertify.success('Вы добывили пиццу в выбранные!');
+    alertify.success('You have added pizza to your favorites!');
 
 }
 
@@ -44,9 +44,9 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => 
     
 
     if (item.types === undefined) {
-      alertify.error("Вы не выбрали тип");
+      alertify.error("You have not selected a type");
     } else if (item.sizes === undefined) {
-      alertify.error("Вы не выбрали размер");
+      alertify.error("You have not selected a size");
     } else {
       
       dispatch(addPizza(item));
@@ -102,10 +102,10 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => 
       </div>
 
       <div className="blockpizza__price__add">
-        <div className="blockpizza__price">от {price} ₽</div>
+        <div className="blockpizza__price">from {price} $</div>
         <div onClick={() => addNewPizza(activeType,activeSize)} className="blockpizza__add">
           <button>
-            <span>+ Добавить</span>
+            <span>+ Add</span>
               {groupAdd.map(obj => (
                 <div>{obj.id === id ? <span className="spantu">{obj.countGroup}</span>: ''}</div>
               ))}

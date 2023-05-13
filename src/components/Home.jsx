@@ -56,9 +56,9 @@ const Home = () => {
               </div>
               {/* <a className="pizza__title" href="https://pizza-chi-three.vercel.app/">CHICAGO PIZZA</a>  */}
                 <div className="pizza__body">
-                  <div className="pizza__title"><a className="pizza__title" href="https://pizza-chi-three.vercel.app/">CHICAGO PIZZA</a></div>
+                  <div className="pizza__title"><a className="pizza__title" href="https://pizza-chi-three.vercel.app/">BAKU PIZZA</a></div>
                   <div className="pizza__text">
-                    самая вкусная пицца во вселенной
+                  the most delicious pizza in the universe
                   </div>
                 </div>
                
@@ -116,7 +116,7 @@ const Home = () => {
         <div className="createdBy__title">Hikmat Asgarli</div>
       </div>
       {addedPizza.length > 0 ? <div onClick={() => navigate('/order')}  className="stickyContainer"><div className="stickyContent"><span>{addedPizza.length}</span> View order</div>
-    <div className="stickyPrice">Руб {totalPrice}</div>
+    <div className="stickyPrice">$ {totalPrice}</div>
     </div>  : ''}
     </div>
   );

@@ -12,10 +12,10 @@ const MainNotFound = () => {
   return (
     <div className="empty">
       
-      <div className="empty__title font">К сожалению, мы не нашли пиццу по вашему запросу.</div>
+      <div className="empty__title font">Sorry, we couldn't find the pizza you requested.</div>
       <div className="empty__text font">
-        <p>Вероятней всего, вы не правельно указали название пиццы.</p>
-        <p>Для того, чтобы поискать пиццу, перейди на главную страницу.</p>{" "}
+      <p>Most likely, you entered the name of the pizza incorrectly.</p>
+         <p>To search for pizza, go to the main page.</p>
       </div>
       <div className="empty__image">
         <img src={emptyLogo} />
@@ -23,7 +23,7 @@ const MainNotFound = () => {
       <div className="empty__button">
         <button>
           <Link className="link" to={"/"}>
-            Вернуться назад
+          Back
           </Link>
         </button>
       </div>

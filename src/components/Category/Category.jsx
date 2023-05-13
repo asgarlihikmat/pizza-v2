@@ -12,49 +12,49 @@ const Category = React.memo(() => {
 
   const sortList = [
     {
-      name: "по цене (DESC)",
+      name: "by price (DESC)",
       type: "desc",
       nameType: "price",
       status: "activex",
     },
     {
-      name: "по цене (ASC)",
+      name: "by price (ASC)",
       type: "asc",
       nameType: "price",
       status: "activex",
     },
     {
-      name: "популярности (DESC)",
+      name: "popularity (DESC)",
       type: "desc",
       nameType: "rating",
       status: "activex",
     },
     {
-      name: "популярности (ASC)",
+      name: "popularity (ASC)",
       type: "asc",
       nameType: "rating",
       status: "activex",
     },
     {
-      name: "по алфавиту (DESC)",
+      name: "alphabetically (DESC)",
       type: "desc",
       nameType: "title",
       status: "activex",
     },
     {
-      name: "по алфавиту (ASC)",
+      name: "alphabetically (ASC)",
       type: "asc",
       nameType: "title",
       status: "activex",
     },
   ];
   const pizzaList = [
-    "Все ",
-    "Мясные",
-    "Вегетарианская",
-    "Гриль",
-    "Острые",
-    "Закрытые",
+    "All",
+    "Meat",
+    "Vegetarian",
+    "Grill",
+    "Sharp",
+    "Closed",
   ];
 
   const dispatch = useDispatch();

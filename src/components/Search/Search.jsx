@@ -28,7 +28,7 @@ const Search = React.memo(() => {
           ref={inputRef}
           onChange={() => onHandleChange()}
           className="pizza__input"
-          placeholder="Поиск..."
+          placeholder="Search..."
         /> 
        
       </div>

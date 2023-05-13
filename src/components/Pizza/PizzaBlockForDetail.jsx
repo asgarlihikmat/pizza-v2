@@ -37,11 +37,11 @@ const PizzaBlockForDetail = ({
     };
 
     if (item.types === undefined) {
-      alertify.error("Вы не выбрали тип");
+      alertify.error("You have not selected a type");
     } else if (item.sizes === undefined) {
-      alertify.error("Вы не выбрали размер");
+      alertify.error("You have not selected a size");
     } else {
-      alertify.success("Вы добавили " + item.title);
+      alertify.success("You have successfully added! " + item.title);
       dispatch(addPizza(item));
       dispatch(pizzaAddedGroup(item));
     }
@@ -73,7 +73,7 @@ const PizzaBlockForDetail = ({
                   className={activeSize === index ? "active" : ""}
                   onClick={() => setActiveSize(index)}
                 >
-                  {size.label} см.
+                  {size.label}
                 </li>
               ))}
             </ul>
@@ -84,7 +84,7 @@ const PizzaBlockForDetail = ({
           <div className="blockpizza__price">от {price} ₽</div>
           <div onClick={() => addNewPizza()} className="blockpizza__add">
           <button>
-            <span>+ Добавить</span>
+            <span>+ Add</span>
               {groupAdd.map((obj,index) => (
                 <div key={index}>{obj.id === id ? <span className="spantu">{obj.countGroup}</span>: ''}</div>
               ))}
