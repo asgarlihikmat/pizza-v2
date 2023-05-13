@@ -8,6 +8,7 @@ import nolikes from '../../assets/icons/liked.png'
 import { setLike } from "../../redux/slices/pizzaSlice";
 import { useNavigate } from "react-router-dom";
 import { pizzaAddedGroup } from "../../redux/slices/addSlice";
+import { Button, Col, Row } from "react-bootstrap";
 
 const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => {
     const {addedPizza,groupAdd} = useSelector(state => state.addSlice)  
@@ -47,7 +48,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => 
     } else if (item.sizes === undefined) {
       alertify.error("Вы не выбрали размер");
     } else {
-      alertify.success("Вы добавили " + item.title);
+      
       dispatch(addPizza(item));
       dispatch(pizzaAddedGroup(item));
     }
@@ -72,7 +73,7 @@ const PizzaBlock = ({ id, title, imageUrl, sizes, types, price,like,index }) => 
       <div className="blockpizza__title">{title}</div>
       <div className="blockpizza__category">
         <div className="blockpizza__one">
-          
+         
           <ul>
             {types.map((type, index) => (
               <li

@@ -366,17 +366,26 @@
     //margin: 5px 5px;
     //text-align: center;
   }
-  &__one ul li {
-    //border: 1px solid black;
-    flex: 1 1 auto;
+  &__one ul li:nth-child(1) {
     cursor: pointer;
-    border-radius: 5px;
-    padding: 10px 30px 10px 30px;
-    margin: 5px 10px 0px -20px;
-    
+    margin: 5px 10px 0px -15px;
+    padding: 10px 25px 10px 20px;
     font-size: 14px;
     color: black;
+    border: 2px solid white;
+    border-radius: 10px;
     
+  }
+  &__one ul li:nth-child(2) {
+    cursor: pointer;
+
+    margin:  5px 0px 0px 0px;
+    padding:  10px 20px 10px 20px;
+    font-size: 14px;
+    color: black;
+    border: 2px solid white;
+    border-radius: 10px;
+
   }
 
   &__two ul {
@@ -392,6 +401,8 @@
     padding: 10px 25px 10px 20px;
     margin: 5px 0px 5px 0px;
     font-size: 14px;
+    border: 2px solid white;
+    border-radius: 10px;
   }
   &__price__add {
     margin-top: 15px;
