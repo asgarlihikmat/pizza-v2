@@ -16,12 +16,14 @@ const PopularRest = () => {
     const end = useRef();
 
     function rightClick(){
-        start.current.scrollIntoView({behavior: "smooth", block: "nearest" });
+        
+      
+         start.current.scrollIntoView({behavior: "smooth", block: "nearest" });
 
     }
     function leftClick(){
         end.current.scrollIntoView({behavior: "smooth", block: "nearest" });
-        console.log('end');
+        console.log(end.current);
     }
     return(
         <div className="pop__container">
@@ -31,7 +33,39 @@ const PopularRest = () => {
             </div>
             <div className="pop__wrapper">
             
-            <div ref={end} className="box">
+            <div  ref={end} className="box">
+                <img src={mac}/>
+                <div className="box__title">McDonald's</div>
+            </div>
+            <div className="box">
+                <img src={kfc}/>
+                <div className="box__title">KFC</div>
+            </div>
+            <div className="box">
+                <img src={pap}/>
+                <div className="box__title">Papa Johns</div>
+            </div>
+            <div className="box">
+                <img src={bir}/>
+                <div className="box__title">BiR-iKi DONER</div>
+            </div>
+            <div className="box">
+                <img src={friday}/>
+                <div className="box__title">FRYDAY</div>
+            </div>
+            <div  className="box">
+                <img src={kafecity}/>
+                <div className="box__title">CafeCity</div>
+            </div>
+            <div className="box">
+                <img src={shaurma}/>
+                <div className="box__title">Shaurma №1</div>
+            </div>
+            <div className="box">
+                <img src={tendir}/>
+                <div className="box__title">Tendir & Mendir</div>
+            </div>
+            <div className="box">
                 <img src={mac}/>
                 <div className="box__title">McDonald's</div>
             </div>
@@ -59,7 +93,7 @@ const PopularRest = () => {
                 <img src={shaurma}/>
                 <div className="box__title">Shaurma №1</div>
             </div>
-            <div ref={start} className="box box1">
+            <div  ref={start} className="box">
                 <img src={tendir}/>
                 <div className="box__title">Tendir & Mendir</div>
             </div>

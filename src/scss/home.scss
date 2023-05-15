@@ -816,7 +816,11 @@
      
    }
 }
+
 @media only screen and (max-width: 687px) {
+  .right-left img{
+    display: none;
+  }
   .blockpizza__detail {
     border: 1px solid #d3d3d3;
     border-radius: 30px;
@@ -1039,7 +1043,8 @@
 }
 
 .box{ 
-  scroll-snap-align: start;
+  
+    scroll-snap-align: start;
     display: inline-flex;
     flex-direction: column;
    
