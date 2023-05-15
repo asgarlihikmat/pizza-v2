@@ -1018,4 +1018,31 @@
 
 
 }
+.pop__wrapper::-webkit-scrollbar {
+  display: none;
+}
+.pop__wrapper{
+  display: flex;
+  overflow: auto;
+}
 
+.box{ 
+    display: inline-flex;
+    flex-direction: column;
+    
+    border: 1px solid rgba(32,33,37,0.12);
+    border-radius: 15px;
+   
+    margin: 20px 20px 0px 0px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 255, .2);
+  img{
+    width: 243px;
+    height: 243px;
+  }
+  &__title{
+    margin: 15px 0px 15px 0px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+}

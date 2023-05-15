@@ -4,19 +4,18 @@ import { useSelector } from "react-redux";
 import PizzaBlock from "./PizzaBlock";
 import Pagination from "../Pagination/Pagination";
 import MainNotFound from "../NotFound/MainNotFound";
+import PopularRest from "../Advertisement/PopularRest";
 
 const Pizza = () => {
   const pizzaList = useSelector((state) => state.pizzaSlice.pizza);
-console.log(pizzaList);
   return (
     <>
+      <PopularRest />
       {pizzaList.length === 0 ? (
         <MainNotFound />
       ) : (
         <div className="content__column">
          <div className="category__name">All pizzas</div>
-
-           
 
           <div className="content__row">
             {/* ---- */}
