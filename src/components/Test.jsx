@@ -14,7 +14,7 @@ const Test = () => {
     },[])
 
     const activation = () => {
-        console.log('Elchin ucun exclusive checking ');
+        console.log('typescript');
     }
 
     return(
