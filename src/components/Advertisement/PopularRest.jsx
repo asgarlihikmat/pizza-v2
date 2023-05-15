@@ -9,16 +9,29 @@ import tendir from '../../assets/popular/tendir.avif'
 
 import left from '../../assets/icons/left-arrow.png'
 import right from '../../assets/icons/right-arrow.png'
+import { useRef } from 'react'
 const PopularRest = () => {
+
+    const start = useRef();
+    const end = useRef();
+
+    function rightClick(){
+        start.current.scrollIntoView({behavior: "smooth", block: "nearest" });
+
+    }
+    function leftClick(){
+        end.current.scrollIntoView({behavior: "smooth", block: "nearest" });
+        console.log('end');
+    }
     return(
         <div className="pop__container">
             <div className="right-left">
-                <img src={left}/>
-                <img  src={right}/>
+                <img onClick={() => leftClick()} className='scroll-left' src={left}/>
+                <img onClick={() => rightClick()} className='scroll-right' src={right}/>
             </div>
             <div className="pop__wrapper">
             
-            <div className="box">
+            <div ref={end} className="box">
                 <img src={mac}/>
                 <div className="box__title">McDonald's</div>
             </div>
@@ -46,7 +59,7 @@ const PopularRest = () => {
                 <img src={shaurma}/>
                 <div className="box__title">Shaurma №1</div>
             </div>
-            <div className="box">
+            <div ref={start} className="box box1">
                 <img src={tendir}/>
                 <div className="box__title">Tendir & Mendir</div>
             </div>

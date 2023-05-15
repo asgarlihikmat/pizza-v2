@@ -1020,11 +1020,12 @@
 }
 .pop__wrapper::-webkit-scrollbar {
   display: none;
+  
 }
 .pop__wrapper{
   display: flex;
-  overflow: auto;
-  
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
 }
 .right-left img{
   width: 30px;
@@ -1038,9 +1039,10 @@
 }
 
 .box{ 
+  scroll-snap-align: start;
     display: inline-flex;
     flex-direction: column;
-    
+   
     border: 1px solid rgba(32,33,37,0.12);
     border-radius: 15px;
    
@@ -1056,4 +1058,13 @@
     font-weight: 600;
     font-size: 1.125rem;
   }
+}
+
+.scroll-left{
+  cursor: pointer;
+
+}
+.scroll-right{
+  cursor: pointer;
+  
 }
