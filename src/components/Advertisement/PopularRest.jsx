@@ -12,26 +12,28 @@ import right from '../../assets/icons/right-arrow.png'
 import { useRef } from 'react'
 const PopularRest = () => {
 
-    const started = useRef();
 
+
+   
+const started = useRef();
     const timeout = () => {
             for (var i=0;i<=10;i++) {
-                (function(ind) {
-                    setTimeout(() => 
-                    {moving(ind);}, 1000 + (3000 * ind));
-                })(i);
+                setTimeout(() => {movingRight(i);}, 3000 * i);
              }
     }
-
     timeout();
-   
 
-    function moving(){
+    function movingLeft(){
         started.current.scrollBy({
-           left: 300,
+           left: -300,
            behavior: "smooth",
          });
-
+   }
+    function movingRight(){
+        started.current.scrollBy({
+           left: 10, 
+           behavior: "smooth",
+         });
    }
     function rightClick(){
          started.current.scrollBy({
