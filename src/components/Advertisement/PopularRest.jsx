@@ -14,6 +14,25 @@ const PopularRest = () => {
 
     const started = useRef();
 
+    const timeout = () => {
+            for (var i=0;i<=10;i++) {
+                (function(ind) {
+                    setTimeout(() => 
+                    {moving(ind);}, 1000 + (3000 * ind));
+                })(i);
+             }
+    }
+
+    timeout();
+   
+
+    function moving(){
+        started.current.scrollBy({
+           left: 300,
+           behavior: "smooth",
+         });
+
+   }
     function rightClick(){
          started.current.scrollBy({
             left: 1000,
@@ -27,6 +46,7 @@ const PopularRest = () => {
             behavior: "smooth",
           });
     }
+    
     return(
         <div className="pop__container">
             <div className="right-left">
