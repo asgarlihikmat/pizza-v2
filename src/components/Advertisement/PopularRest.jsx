@@ -12,18 +12,20 @@ import right from '../../assets/icons/right-arrow.png'
 import { useRef } from 'react'
 const PopularRest = () => {
 
-    const start = useRef();
-    const end = useRef();
+    const started = useRef();
 
     function rightClick(){
-        
-      
-         start.current.scrollIntoView({behavior: "smooth", block: "nearest" });
+         started.current.scrollBy({
+            left: 1000,
+            behavior: "smooth",
+          });
 
     }
     function leftClick(){
-        end.current.scrollIntoView({behavior: "smooth", block: "nearest" });
-        console.log(end.current);
+        started.current.scrollBy({
+            left: -1000,
+            behavior: "smooth",
+          });
     }
     return(
         <div className="pop__container">
@@ -31,9 +33,9 @@ const PopularRest = () => {
                 <img onClick={() => leftClick()} className='scroll-left' src={left}/>
                 <img onClick={() => rightClick()} className='scroll-right' src={right}/>
             </div>
-            <div className="pop__wrapper">
+            <div ref={started} className="pop__wrapper">
             
-            <div  ref={end} className="box">
+            <div className="box">
                 <img src={mac}/>
                 <div className="box__title">McDonald's</div>
             </div>
@@ -93,7 +95,7 @@ const PopularRest = () => {
                 <img src={shaurma}/>
                 <div className="box__title">Shaurma №1</div>
             </div>
-            <div  ref={start} className="box">
+            <div className="box">
                 <img src={tendir}/>
                 <div className="box__title">Tendir & Mendir</div>
             </div>
